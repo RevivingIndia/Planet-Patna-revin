@@ -10,22 +10,22 @@ const cards = [
         title: 'Heritage Walk',
         subtitle: 'GUIDED TOURS',
         description: 'Step into the past with expert-led heritage walks through Patna. Discover ancient Pataliputra, colonial landmarks, and the city\'s layered history in an immersive, storytelling experience.',
-        image: 'https://images.unsplash.com/photo-1568667256549-094345857637?w=600&h=800&fit=crop&q=80',
+        image: '/curated-experience/heritage-walks.jpg',
         href: '/heritage-walk',
     },
     {
         title: 'Gallery Tour',
         subtitle: 'MUSEUM & ARCHIVES',
         description: 'Explore our curated galleries—archival collections, Company School paintings, and thematic exhibitions—with guided tours that bring the region\'s cultural heritage to life.',
-        image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=600&h=800&fit=crop&q=80',
+        image: '/curated-experience/gallery-tour.jpg',
         href: '/collection',
     },
     {
         title: 'Events & Program',
         subtitle: 'CULTURAL CALENDAR',
         description: 'Engage with history through workshops, lectures, screenings, and cultural gatherings. From heritage programs to the Multipurpose Hall, find events that animate the past.',
-        image: 'https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=600&h=800&fit=crop&q=80',
-        href: '#',
+        image: '/curated-experience/events-programs.jpg',
+        href: '/events-programs',
     },
 ];
 

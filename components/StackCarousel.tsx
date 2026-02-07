@@ -46,23 +46,70 @@ const ITEMS = [
         href: '#',
         category: 'SHOP',
         title: 'Souvenir Shop',
-        img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000',
+        img: '/explore/souvenir-shop.jpg',
+        imageFit: 'contain' as const, // show full image without cropping
     },
 ];
+
+type CarouselItem = (typeof ITEMS)[number];
+const getImageFit = (item: CarouselItem) => ('imageFit' in item && item.imageFit === 'contain' ? 'bg-contain' : 'bg-cover');
+
+const HOVER_DELAY_MS = 280;
 
 export default function MouseDrivenCarousel() {
     const [center, setCenter] = useState<number>(2);
     const containerRef = useRef<HTMLDivElement | null>(null);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const pendingIndexRef = useRef<number | null>(null);
 
     const handleMouseMove = (e: React.MouseEvent) => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const progress = Math.max(0, Math.min(1, mouseX / rect.width));
-        const targetIndex = Math.floor(progress * ITEMS.length);
-        if (targetIndex !== center) {
-            setCenter(targetIndex);
+        const x = e.clientX;
+        const y = e.clientY;
+        // Find which card(s) contain the pointer; pick the topmost (highest z-index)
+        let bestIndex = -1;
+        let bestZ = -1;
+        for (let i = 0; i < ITEMS.length; i++) {
+            const el = cardRefs.current[i];
+            if (!el) continue;
+            const rect = el.getBoundingClientRect();
+            if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+                const z = 50 - Math.abs(i - center);
+                if (z > bestZ) {
+                    bestZ = z;
+                    bestIndex = i;
+                }
+            }
         }
+
+        if (bestIndex < 0 || bestIndex === center) {
+            // Not over a card, or already on this card — cancel any pending switch
+            if (hoverTimeoutRef.current) {
+                clearTimeout(hoverTimeoutRef.current);
+                hoverTimeoutRef.current = null;
+            }
+            pendingIndexRef.current = null;
+            return;
+        }
+
+        // Over a different card: only switch after staying for HOVER_DELAY_MS
+        if (pendingIndexRef.current === bestIndex) return; // already waiting for this card
+
+        if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+        pendingIndexRef.current = bestIndex;
+        hoverTimeoutRef.current = setTimeout(() => {
+            setCenter(bestIndex);
+            hoverTimeoutRef.current = null;
+            pendingIndexRef.current = null;
+        }, HOVER_DELAY_MS);
+    };
+
+    const handleMouseLeave = () => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = null;
+        }
+        pendingIndexRef.current = null;
     };
 
     return (
@@ -88,6 +135,7 @@ export default function MouseDrivenCarousel() {
                 <div
                     ref={containerRef}
                     onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
                     className="relative flex items-center justify-center h-[500px] md:h-[600px] w-full z-10"
                 >
                     {ITEMS.map((item, i) => {
@@ -123,17 +171,21 @@ export default function MouseDrivenCarousel() {
                   w-[400px] / h-[600px] on Desktop
                 */}
                                 <div
+                                    ref={(el) => {
+                                        if (cardRefs.current.length <= i) cardRefs.current.length = i + 1;
+                                        cardRefs.current[i] = el;
+                                    }}
                                     className={`
                     relative 
                     w-[320px] h-[480px] md:w-[400px] md:h-[600px] 
-                    bg-gray-200 overflow-hidden
+                    bg-stone-200 overflow-hidden
                     transition-all duration-500 ease-out
                     ${isActive ? 'shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)]' : 'shadow-xl grayscale-[100%]'}
                   `}
                                 >
-                                    {/* Image */}
+                                    {/* Image - contain for Souvenir Shop so full image shows */}
                                     <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
+                                        className={`absolute inset-0 bg-center transition-transform duration-700 ${getImageFit(item)}`}
                                         style={{
                                             backgroundImage: `url(${item.img})`,
                                             transform: isActive ? 'scale(1.05)' : 'scale(1)'

@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import ShopWithUs from '@/components/ShopWithUs';
 import StackCarousel from '@/components/StackCarousel';
 import BiharMap from '@/components/BiharMap';
 import AboutUs from '@/components/AboutUs';
@@ -14,15 +15,16 @@ export default function Home() {
     <main>
       <Hero />
 
+      <ShopWithUs />
       <StackCarousel />
       <AboutUs />
-      <BiharMap />
       <ArchivalJourney />
       <ThreeCards />
       <EducationCards />
       <PlanetPatna />
       <VisualChronicle />
       <OurFacilities />
+      <BiharMap />
     </main>
   );
 }

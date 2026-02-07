@@ -2,29 +2,29 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Coffee, ShoppingBag, Users } from 'lucide-react'; // Make sure to install lucide-react
+import { Coffee, Building2, Users } from 'lucide-react';
 
 const facilities = [
     {
-        title: 'Guided Tours',
-        subtitle: 'Expert Narratives',
-        icon: <Users size={24} />,
-        description: 'Explore the museum with expert-led tours that offer in-depth knowledge and fascinating stories about Patna\'s heritage.',
-        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&h=800&fit=crop&q=80',
-    },
-    {
-        title: 'Cafe & Dining',
-        subtitle: 'Taste of Bihar',
+        title: 'Cafe',
+        subtitle: 'Refreshments',
         icon: <Coffee size={24} />,
-        description: 'Enjoy refreshments and snacks at our on-site café, perfect for taking a break between exhibits in a relaxing environment.',
-        image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=800&fit=crop&q=80',
+        description: 'Enjoy refreshments and a relaxed break at our on-site café between exhibits.',
+        image: '/amenities-services/cafe-dining.jpg',
     },
     {
-        title: 'Museum Shop',
-        subtitle: 'Curated Souvenirs',
-        icon: <ShoppingBag size={24} />,
-        description: 'Take home a piece of the museum with exclusive souvenirs, books, and locally crafted items that reflect the spirit of Patna.',
-        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop&q=80',
+        title: 'Multi Purpose Hall',
+        subtitle: 'Venue & Events',
+        icon: <Building2 size={24} />,
+        description: 'A flexible space for lectures, workshops, conferences, and cultural gatherings.',
+        image: '/amenities-services/mph.jpg',
+    },
+    {
+        title: 'Club',
+        subtitle: 'Elite Member Club',
+        icon: <Users size={24} />,
+        description: 'A private forum for thinkers, patrons, and cultural leaders to engage through curated events and discussions.',
+        image: '/amenities-services/club.jpg',
     },
 ];
 
@@ -73,6 +73,7 @@ export default function OurFacilities() {
                                         fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                                         sizes="(max-width: 768px) 100vw, 33vw"
+                                        unoptimized
                                     />
                                     {/* Subtle overlay */}
                                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />

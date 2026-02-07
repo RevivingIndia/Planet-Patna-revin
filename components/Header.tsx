@@ -5,8 +5,10 @@ import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [archivesOpen, setArchivesOpen] = useState(false);
   const [museumOpen, setMuseumOpen] = useState(false);
   const [facilitiesOpen, setFacilitiesOpen] = useState(false);
+  const [engageLearnOpen, setEngageLearnOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -25,9 +27,39 @@ export default function Header() {
             <Link href="/about-us" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
               About Us
             </Link>
-            <Link href="/archives" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
-              Archives
-            </Link>
+            <div
+              className="relative"
+              onMouseEnter={() => setArchivesOpen(true)}
+              onMouseLeave={() => setArchivesOpen(false)}
+            >
+              <Link
+                href="/archives"
+                className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors inline-flex items-center gap-1"
+              >
+                Archives
+                <svg className={`w-4 h-4 transition-transform ${archivesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+              {archivesOpen && (
+                <div className="absolute top-full left-0 pt-1">
+                  <div className="bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1 min-w-[240px]">
+                    <Link
+                      href="/archives/radha-krishna-jalan"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Dewan Bahadur Radha Krishna Jalan
+                    </Link>
+                    <Link
+                      href="/archives/collection"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Collection
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <div
               className="relative"
               onMouseEnter={() => setMuseumOpen(true)}
@@ -97,14 +129,41 @@ export default function Header() {
                 </div>
               )}
             </div>
-            <Link href="/events-programs" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
-              Events & Programs
-            </Link>
-            <Link href="/learning-research" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
-              Learning and Research
-            </Link>
+            <div
+              className="relative"
+              onMouseEnter={() => setEngageLearnOpen(true)}
+              onMouseLeave={() => setEngageLearnOpen(false)}
+            >
+              <span className="text-gray-800 font-normal text-base inline-flex items-center gap-1 cursor-default">
+                Engage & Learn
+                <svg className={`w-4 h-4 transition-transform ${engageLearnOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+              {engageLearnOpen && (
+                <div className="absolute top-full left-0 pt-1">
+                  <div className="bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1 min-w-[220px]">
+                    <Link
+                      href="/events-programs"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Events & Program
+                    </Link>
+                    <Link
+                      href="/learning-research"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Learning & Research
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <Link href="/heritage-walk" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
               Heritage Walks
+            </Link>
+            <Link href="/shop" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
+              Souvenir Shop
             </Link>
             <Link href="/contact" className="text-gray-800 hover:text-blue-600 font-normal text-base transition-colors">
               Contact Us
@@ -152,13 +211,25 @@ export default function Header() {
             >
               About Us
             </Link>
-            <Link
-              href="/archives"
-              className="block py-2 text-gray-800 hover:text-blue-600 font-normal transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Archives
-            </Link>
+            <div className="py-2">
+              <span className="block py-1 text-xs font-bold tracking-wider uppercase text-gray-400">
+                Archives
+              </span>
+              <Link
+                href="/archives/radha-krishna-jalan"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dewan Bahadur Radha Krishna Jalan
+              </Link>
+              <Link
+                href="/archives/collection"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Collection
+              </Link>
+            </div>
             <div className="py-2">
               <span className="block py-1 text-xs font-bold tracking-wider uppercase text-gray-400">
                 Museum
@@ -204,26 +275,38 @@ export default function Header() {
                 Café
               </Link>
             </div>
-            <Link
-              href="/events-programs"
-              className="block py-2 text-gray-800 hover:text-blue-600 font-normal transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Events & Programs
-            </Link>
-            <Link
-              href="/learning-research"
-              className="block py-2 text-gray-800 hover:text-blue-600 font-normal transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Learning and Research
-            </Link>
+            <div className="py-2">
+              <span className="block py-1 text-xs font-bold tracking-wider uppercase text-gray-400">
+                Engage & Learn
+              </span>
+              <Link
+                href="/events-programs"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Events & Program
+              </Link>
+              <Link
+                href="/learning-research"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Learning & Research
+              </Link>
+            </div>
             <Link
               href="/heritage-walk"
               className="block py-2 text-gray-800 hover:text-blue-600 font-normal transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Heritage Walks
+            </Link>
+            <Link
+              href="/shop"
+              className="block py-2 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Souvenir Shop
             </Link>
             <Link
               href="/contact"

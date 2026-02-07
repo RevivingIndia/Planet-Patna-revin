@@ -107,15 +107,15 @@ export default function ShopPage() {
         <>
             <main className="min-h-screen bg-stone-50">
                 <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-24">
-                    <header className="mb-14">
+                    <header className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-amber-700 text-xs font-bold tracking-[0.2em] uppercase mb-3 block">
-                            Souvenir Shop
+                            Planet Patna
                         </span>
-                        <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
-                            Visit the Souvenir Shop
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-5">
+                            Souvenir Shop
                         </h1>
-                        <p className="text-stone-600 max-w-2xl">
-                            Browse our full range of books, postcards, coasters, and keepsakes—each inspired by the museum and Patna’s heritage.
+                        <p className="text-stone-600 text-lg leading-relaxed">
+                            Take a piece of Patna’s story home. Browse our curated range of books, postcards, coasters, paperweights, and keepsakes—each inspired by the museum and the city’s heritage. Click any product for a closer look.
                         </p>
                     </header>
 

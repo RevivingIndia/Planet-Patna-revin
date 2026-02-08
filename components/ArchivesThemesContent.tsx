@@ -15,7 +15,7 @@ const SECTIONS = [
   {
     id: 'society',
     title: 'Society',
-    img: '/archives/gallery-full-archive.jpg',
+    img: '/archives/society.jpg',
     content: [
       'A portion of our collection serves as a repository for the institutional history of Bihar\'s intellectual and social awakening. Central to this section are records from scholarly bodies such as the Asiatic Society of Bengal and the Bihar Research Society, founded in 1915, which became a cornerstone of historical, archaeological, and linguistic research in the region.',
       'Complementing these are documents from organizations such as the Bihar Sanskrit Sanjivan Samaj, the Vedic Research Society, reflecting sustained efforts to revive ancient languages and cultivate a regional literary identity.',
@@ -25,7 +25,7 @@ const SECTIONS = [
   {
     id: 'art-music-theatre',
     title: 'Art, Music and Theatre',
-    img: '/archives/music-health.jpg',
+    img: '/archives/music-arts.jpg',
     content: [
       'Our collection of archival documents reconstructs the city\'s 20th-century cultural zenith. This section brings to life a golden age where the Wheeler Senate Hall hosted legendary musical performances by Pt. Omkar Nath Thakur and K.L. Saigal, while the Elphinstone Picture Palace hosted historic Bharatanatyam recitals by Rukmini Devi Arundale. The archives further track the evolution of regional media, preserving the history of Bihar\'s first film studios and iconic venues like the Regent Cinema and Dinapore\'s Diana Cinema, which serve as milestones in the transition from colonial administration to a vibrant modern identity.',
       'The collection also captures the grassroots intellectual vigor of Patna, highlighting the city\'s deep-seated love for literature and local theater. By safeguarding the records of active dramatic societies like the Mahabir and Adalatganj Dramatic Clubs, the archive preserves the legacy of performances such as Satya Harishchandra and Sat-bhai Champa.',
@@ -34,7 +34,7 @@ const SECTIONS = [
   {
     id: 'health-medicine',
     title: 'Health and Medicine',
-    img: '/archives/music-health.jpg',
+    img: '/archives/health-medicine.jpg',
     content: [
       'This archival section offers a focused insight at the region\'s leadership in medical science. The collection features rare administrative and historical documents from foundational institutions such as the Prince of Wales Medical College (now PMCH), the Indian Institute of Medical Research, and the Bihar Nurses Registration Council. A particularly rare highlight is the rare documentation of the Civil Defence Hospital Train, a mobile emergency unit from the World War II era that underscores Patna\'s strategic role in colonial healthcare logistics and emergency response.',
       'These documents, ranging from public health notices during plague outbreaks to the professionalization records, provide a comprehensive narrative of the transition to modern clinical medicine. By preserving these papers, the collection serves as a vital historical resource, tracing the evolution of Bihar\'s healthcare infrastructure from its early twentieth century roots to its current state.',
@@ -43,15 +43,15 @@ const SECTIONS = [
   {
     id: 'sports-games',
     title: 'Sports and Games',
-    img: '/archives/sports-footprints.jpg',
+    img: '/archives/sports.jpg',
     content: [
-      'The Sports section traces the intersection of European athletic traditions and local sporting practices. This collection highlights the "big four"—wrestling, hockey, cricket, and football—through rare tournament records and correspondence from the Bihar and Odisha Olympic Association, detailing the region\'s early integration into the global Olympic movement. By preserving these documents the collection illustrates how sports functioned as a vital social bridge between colonial administration and the local population, shaping Patna\'s modern competitive identity.',
+      'The Sports section traces the intersection of European athletic traditions and local sporting practices. This collection highlights sports such as wrestling, hockey, cricket, football, and Lawn Tennis through rare tournament records and correspondence from the Bihar and Odisha Olympic Association, detailing the region\'s early integration into the global Olympic movement. By preserving these documents, the collection illustrates how sports functioned as a vital social bridge between colonial administration and the local population, shaping Patna\'s modern competitive identity.',
     ],
   },
   {
     id: 'famous-footprints',
     title: 'Famous Footprints',
-    img: '/archives/sports-footprints.jpg',
+    img: '/archives/famous-footprints.jpg',
     content: [
       'This collection features rare personal correspondence and signed documents linking the Jalan family to iconic figures like Mahatma Gandhi, Jawaharlal Nehru, Sachidanand Sinha, Rabindranath Tagore and many more. These records reveal the intellectual and political networks that connected Patna\'s elite with the leadership of the Indian independence movement.',
       'By documenting personal invitations, letters, and social exchanges, the collection moves beyond conventional political history to reveal the human relationships that shaped national narratives. Together, these materials form a biographical tapestry that situates Patna within the broader story of India\'s journey toward self-governance and modern statehood.',
@@ -60,27 +60,27 @@ const SECTIONS = [
   {
     id: 'religion-faith',
     title: 'Religion and faith',
-    img: '/archives/gallery-full-archive.jpg',
+    img: '/archives/faith-festivity.jpg',
     content: [
-      'Moving beyond abstract concepts of faith, the archive preserves multi-lingual invitation cards and community ledgers that reveal how festivals like Holi, Diwali, Durga Puja and many more were celebrated as collective social events. These records, along with documentation of inter-community participation, highlight a lived reality of pluralism where religious boundaries are blurred. By housing these ephemeral records Planet Patna provides an authentic, documented lens into the secular spirit and cultural resilience that defined the city\'s identity across the twentieth century.',
+      'Moving beyond abstract concepts of faith, the archive preserves multi-lingual invitation cards and community records that reveal how festivals like Holi, Diwali, Durga Puja, and many more were celebrated as collective social events. These records highlight the prime notations of communal syncretism. By housing these rare prints, Planet Patna provides an authentic, documented lens into the secular spirit and cultural resilience that defined the city\'s identity across the twentieth century.',
     ],
   },
   {
     id: 'patnas-past',
     title: "Patna's past",
-    img: '/archives/gallery-full-archive.jpg',
+    img: '/archives/patnas-past.jpg',
     content: [
       'This section chronicles the city\'s transformation into a modern administrative and cultural hub. Rare documents, including 1940s invitation cards, trace the political transition of Bankipore Maidan into Gandhi Maidan, while institutional records from the Bihar Council Chamber, Patna High Court, and New Patna Railway Junction capture the region\'s infrastructural evolution since 1912.',
-      'Beyond governance, the archive preserves the social history of iconic public spaces like Hardinge Park (Shaheed Veer Kunwar Singh Azadi Park), including rare documentation of the 1921 garden party for the Prince of Wales. Through blueprints, case records, and ephemeral social notices from sites ranging from Mangal Talab to colonial gardens, the collection narrates the lived experiences of the architects and citizens who built contemporary Patna.',
+      'Beyond governance, the archive preserves the social history of iconic public spaces like Hardinge Park (Shaheed Veer Kunwar Singh Azadi Park), including rare documentation of the 1921 garden party for the Prince of Wales. Through blueprints, case records, and social notices from sites ranging from Mangal Talab to colonial gardens, the collection narrates the lived experiences of the architects and citizens who built contemporary Patna.',
     ],
   },
   {
     id: 'beyond-patna',
     title: 'Beyond Patna',
-    img: '/archives/gallery-full-archive.jpg',
+    img: '/archives/beyond-patna.jpg',
     content: [
-      'Expanding beyond regional history, this section situates Patna within the broader national narrative. This collection highlights how residents of Patna engaged with the broader social and historical fabric of India during the twentieth century. It showcases rare archival materials, including colonial-era postcards and official correspondence related to national landmarks such as the Taj Mahal and India Gate, providing a unique outsider-in perspective on these iconic symbols of Indian heritage.',
-      'Beyond architectural history, this section documents significant national events and state visits, often captured through the Jalan family\'s personal network. It is enriched by rare brochures, and private letters that discuss the national political shifts and state exhibitions occurring in cities like Delhi and Agra. By presenting these primary sources, Planet Patna highlights the interconnectedness of local intelligentsia and national identity formation.',
+      'Expanding beyond regional history, this section situates Patna within the broader national narrative. This collection highlights how residents of Patna engaged with the broader social and historical fabric of India during the twentieth century. It showcases rare archival materials, including colonial-era postcards and official correspondence related to national landmarks such as the Taj Mahal and India Gate, providing a unique perspective on these iconic symbols of Indian heritage.',
+      'Beyond architectural history, this section documents significant national events and state visits, often captured through the Jalan family\'s personal network. It is enriched by rare brochures and private letters that discuss the national political shifts and state exhibitions occurring in cities like Delhi and Agra. By presenting these primary sources, Planet Patna highlights the interconnectedness of local intelligentsia and national identity formation.',
     ],
   },
 ];
@@ -110,7 +110,8 @@ export default function ArchivesThemesContent() {
                       alt={section.title}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-black/70 to-transparent">

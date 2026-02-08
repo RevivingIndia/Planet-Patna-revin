@@ -1,11 +1,29 @@
+import Image from 'next/image';
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl">Get in touch with Planet Patna Museum</p>
+    <main className="min-h-screen bg-white">
+      {/* Banner Header */}
+      <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
+        <Image
+          src="/contact/contact-banner.jpg"
+          alt="Contact Us - Planet Patna Foundation"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-4">
+            <span className="block text-xs font-bold tracking-[0.25em] uppercase text-amber-300/90 mb-2">
+              Planet Patna
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight">
+              Contact Us
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 mt-2">Get in touch with Planet Patna Museum</p>
+          </div>
         </div>
       </section>
 
@@ -120,6 +138,19 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Image on the right after content */}
+            <div className="mt-16 flex justify-end">
+              <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
+                <Image
+                  src="/contact/cafe-dining.jpg"
+                  alt="Café & Dining - Planet Patna"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 512px"
+                />
               </div>
             </div>
           </div>

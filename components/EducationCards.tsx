@@ -14,6 +14,13 @@ const cards = [
         href: '/learning-research',
     },
     {
+        title: 'Events & Program',
+        category: 'PROGRAMS',
+        description: 'Talks, workshops, screenings, and cultural programs that bring the collection and heritage to life.',
+        image: '/beyond-the-walls/events-programs-banner.jpg',
+        href: '/events-programs',
+    },
+    {
         title: 'Beyond Gallery',
         category: 'OUTREACH',
         description: 'Extending the museum experience into the city with pop-up displays and digital heritage trails.',
@@ -49,7 +56,7 @@ export default function EducationCards() {
                 </div>
 
                 {/* Immersive Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {cards.map((card, index) => (
                         <motion.div
                             key={index}

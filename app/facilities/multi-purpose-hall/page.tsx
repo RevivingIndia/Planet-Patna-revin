@@ -13,7 +13,7 @@ export default function MultiPurposeHallPage() {
     <main className="min-h-screen bg-white">
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
         <Image
-          src="/explore/mph.jpg"
+          src="/amenities-services/mph.jpg"
           alt="Multi-purpose Hall - Planet Patna Foundation"
           fill
           className="object-cover object-center"

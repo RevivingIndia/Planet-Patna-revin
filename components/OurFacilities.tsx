@@ -43,7 +43,7 @@ export default function OurFacilities() {
             Plan Your Visit
           </span>
                     <h2 className="text-4xl md:text-5xl font-serif text-gray-900">
-                        Amenities & Services
+                        Facilities & Service
                     </h2>
                 </div>
 

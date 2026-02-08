@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ArrowLeft } from 'lucide-react';
 import ArchivesThemesCarousel from '@/components/ArchivesThemesCarousel';
 import ArchivesThemesContent from '@/components/ArchivesThemesContent';
 
@@ -40,6 +42,19 @@ export default function ArchivesCollectionPage() {
 
       {/* Full content for each theme */}
       <ArchivesThemesContent />
+
+      {/* Back to Archives */}
+      <section className="py-12 md:py-16 bg-stone-50/50 border-t border-stone-200">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24">
+          <Link
+            href="/archives"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-700 font-medium transition-colors"
+          >
+            <ArrowLeft size={20} />
+            Back to Archives
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }

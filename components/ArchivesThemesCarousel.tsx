@@ -1,20 +1,21 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const ARCHIVE_THEMES = [
   { id: '1', href: '#education', category: 'ARCHIVAL THEMES', title: 'Education', img: '/archives/education.jpg' },
-  { id: '2', href: '#society', category: 'ARCHIVAL THEMES', title: 'Society', img: '/archives/gallery-full-archive.jpg' },
-  { id: '3', href: '#art-music-theatre', category: 'ARCHIVAL THEMES', title: 'Art, Music and Theatre', img: '/archives/music-health.jpg' },
-  { id: '4', href: '#health-medicine', category: 'ARCHIVAL THEMES', title: 'Health and Medicine', img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000' },
-  { id: '5', href: '#sports-games', category: 'ARCHIVAL THEMES', title: 'Sports and Games', img: '/archives/sports-footprints.jpg' },
-  { id: '6', href: '#famous-footprints', category: 'ARCHIVAL THEMES', title: 'Famous Footprints', img: '/archives/sports-footprints.jpg' },
-  { id: '7', href: '#religion-faith', category: 'ARCHIVAL THEMES', title: 'Religion and faith', img: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1000' },
-  { id: '8', href: '#patnas-past', category: 'ARCHIVAL THEMES', title: "Patna's Past", img: '/archives/gallery-full-archive.jpg' },
-  { id: '9', href: '#beyond-patna', category: 'ARCHIVAL THEMES', title: 'Beyond Patna', img: 'https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&q=80&w=1000' },
+  { id: '2', href: '#society', category: 'ARCHIVAL THEMES', title: 'Society', img: '/archives/society.jpg' },
+  { id: '3', href: '#art-music-theatre', category: 'ARCHIVAL THEMES', title: 'Art, Music and Theatre', img: '/archives/music-arts.jpg' },
+  { id: '4', href: '#health-medicine', category: 'ARCHIVAL THEMES', title: 'Health and Medicine', img: '/archives/health-medicine.jpg' },
+  { id: '5', href: '#sports-games', category: 'ARCHIVAL THEMES', title: 'Sports and Games', img: '/archives/sports.jpg' },
+  { id: '6', href: '#famous-footprints', category: 'ARCHIVAL THEMES', title: 'Famous Footprints', img: '/archives/famous-footprints.jpg' },
+  { id: '7', href: '#religion-faith', category: 'ARCHIVAL THEMES', title: 'Religion and faith', img: '/archives/faith-festivity.jpg' },
+  { id: '8', href: '#patnas-past', category: 'ARCHIVAL THEMES', title: "Patna's Past", img: '/archives/patnas-past.jpg' },
+  { id: '9', href: '#beyond-patna', category: 'ARCHIVAL THEMES', title: 'Beyond Patna', img: '/archives/beyond-patna.jpg' },
 ];
 
 export default function ArchivesThemesCarousel() {
@@ -84,12 +85,13 @@ export default function ArchivesThemesCarousel() {
                     ${isActive ? 'shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)]' : 'shadow-xl grayscale-[100%]'}
                   `}
                 >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
-                    style={{
-                      backgroundImage: `url(${item.img})`,
-                      transform: isActive ? 'scale(1.05)' : 'scale(1)',
-                    }}
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className={`object-cover transition-transform duration-700 ${isActive ? 'scale-105' : 'scale-100'}`}
+                    sizes="(max-width: 768px) 280px, 340px"
+                    loading="lazy"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-40'}`} />
 

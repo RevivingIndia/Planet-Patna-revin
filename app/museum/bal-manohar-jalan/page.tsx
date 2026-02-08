@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Bal Manohar Jalan | Planet Patna Foundation',
@@ -72,6 +74,19 @@ export default function BalManoharJalanPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Back to Museum */}
+      <section className="py-12 md:py-16 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24">
+          <Link
+            href="/museum"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-700 font-medium transition-colors"
+          >
+            <ArrowLeft size={20} />
+            Back to Museum
+          </Link>
         </div>
       </section>
     </main>

@@ -192,8 +192,20 @@ export default function ArtsCultureMap() {
         }
     }, [search, routeFilter]);
 
+    // Scroll only the sidebar list so the active item is visible — do not scroll the window (would move whole page)
     useEffect(() => {
-        activeItemRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        const list = listRef.current;
+        const item = activeItemRef.current;
+        if (!list || !item) return;
+        const listRect = list.getBoundingClientRect();
+        const itemRect = item.getBoundingClientRect();
+        const itemTopRelativeToList = itemRect.top - listRect.top + list.scrollTop;
+        const itemBottom = itemTopRelativeToList + item.offsetHeight;
+        if (itemBottom > list.scrollTop + list.clientHeight) {
+            list.scrollTop = itemBottom - list.clientHeight;
+        } else if (itemTopRelativeToList < list.scrollTop) {
+            list.scrollTop = itemTopRelativeToList;
+        }
     }, [activeSite.id]);
 
     const handleSelect = (site: Site) => {

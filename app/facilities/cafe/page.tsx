@@ -50,11 +50,11 @@ export default function CafePage() {
             <div className="lg:col-span-5">
               <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 bg-gray-100">
                 <Image
-                  src="/explore/cafe.jpg"
-                  alt="Café - Planet Patna"
+                  src="/amenities-services/cafe-dining.jpg"
+                  alt="Café & Dining - Planet Patna"
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
                 />
               </div>
             </div>

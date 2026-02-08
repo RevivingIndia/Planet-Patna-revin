@@ -98,12 +98,15 @@ export default function Header() {
               onMouseEnter={() => setFacilitiesOpen(true)}
               onMouseLeave={() => setFacilitiesOpen(false)}
             >
-              <span className="text-gray-800 font-normal text-base inline-flex items-center gap-1 cursor-default">
+              <Link
+                href="/facilities"
+                className="text-gray-800 hover:text-blue-600 font-normal text-base inline-flex items-center gap-1 transition-colors"
+              >
                 Facilities
                 <svg className={`w-4 h-4 transition-transform ${facilitiesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-              </span>
+              </Link>
               {facilitiesOpen && (
                 <div className="absolute top-full left-0 pt-1">
                   <div className="bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1 min-w-[220px]">
@@ -134,15 +137,18 @@ export default function Header() {
               onMouseEnter={() => setEngageLearnOpen(true)}
               onMouseLeave={() => setEngageLearnOpen(false)}
             >
-              <span className="text-gray-800 font-normal text-base inline-flex items-center gap-1 cursor-default">
+              <Link
+                href="/engage-learn"
+                className="text-gray-800 hover:text-blue-600 font-normal text-base inline-flex items-center gap-1 transition-colors"
+              >
                 Engage & Learn
                 <svg className={`w-4 h-4 transition-transform ${engageLearnOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-              </span>
+              </Link>
               {engageLearnOpen && (
                 <div className="absolute top-full left-0 pt-1">
-                  <div className="bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1 min-w-[220px]">
+                  <div className="bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1 min-w-[240px]">
                     <Link
                       href="/events-programs"
                       className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
@@ -155,6 +161,15 @@ export default function Header() {
                     >
                       Learning & Research
                     </Link>
+                    <span className="block px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed">
+                      Beyond Gallery — Coming Soon
+                    </span>
+                    <span className="block px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed">
+                      Get Involved — Coming Soon
+                    </span>
+                    <span className="block px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed">
+                      Blog — Coming Soon
+                    </span>
                   </div>
                 </div>
               )}
@@ -293,6 +308,15 @@ export default function Header() {
               >
                 Learning & Research
               </Link>
+              <span className="block py-1.5 pl-3 text-sm text-gray-400 cursor-not-allowed">
+                Beyond Gallery — Coming Soon
+              </span>
+              <span className="block py-1.5 pl-3 text-sm text-gray-400 cursor-not-allowed">
+                Get Involved — Coming Soon
+              </span>
+              <span className="block py-1.5 pl-3 text-sm text-gray-400 cursor-not-allowed">
+                Blog — Coming Soon
+              </span>
             </div>
             <Link
               href="/heritage-walk"

@@ -88,7 +88,7 @@ export default function VisualChronicle() {
                         transition={{ delay: 0.2 }}
                         className="md:col-span-1 md:row-span-1 relative group rounded-2xl overflow-hidden cursor-pointer"
                     >
-                        {/* UPDATED: Portrait of an antique Indian bronze statue */}
+                        {/* Portrait of an antique Indian bronze statue */}
                         <Image
                             src="https://images.unsplash.com/photo-1620333986385-636cb33c1038?w=600&h=800&fit=crop&q=80"
                             alt="Antique Bronze Artifact"
@@ -126,10 +126,9 @@ export default function VisualChronicle() {
                         transition={{ delay: 0.4 }}
                         className="md:col-span-2 md:row-span-1 relative group rounded-2xl overflow-hidden cursor-pointer"
                     >
-                        {/* UPDATED: Wide view of a grand museum hall */}
                         <Image
-                            src="https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&h=600&fit=crop&q=80"
-                            alt="Museum Grand Hallway"
+                            src="/visual/glimpses-of-history.jpg"
+                            alt="The Colonial Archive Hall"
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />

@@ -42,12 +42,6 @@ export const ALL_SHOP_PRODUCTS: ShopProduct[] = [
         description: 'Dive into the history and legacy of Quila House in this illustrated book.',
         image: '/shop/quila-house-book.png',
     },
-    {
-        id: 'dual-heritage',
-        name: 'The Dual Heritage',
-        description: 'A compelling read on the layered cultural heritage of the region.',
-        image: '/shop/dual-heritage-book.jpg',
-    },
 ];
 
 /** Product IDs to show on home page "Shop with Us" (rest are only on /shop). */

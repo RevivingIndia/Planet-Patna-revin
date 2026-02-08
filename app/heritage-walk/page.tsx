@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import BiharMap from '@/components/BiharMap';
 
 export const metadata: Metadata = {
   title: 'Heritage Walks | Planet Patna Foundation',
@@ -64,6 +65,8 @@ export default function HeritageWalkPage() {
           </div>
         </div>
       </section>
+
+      <BiharMap />
     </main>
   );
 }

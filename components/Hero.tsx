@@ -11,9 +11,7 @@ const slides = [
 		title: "The Legacy of Pataliputra",
 		description:
 			"Journey through 2,500 years of history in India's first experiential museum. Witness the rise and fall of empires.",
-		video: "https://cdn.coverr.co/videos/coverr-walking-through-the-museum-of-art-history-in-vienna-2636/1080p.mp4",
-		poster:
-			"https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1920&h=1080&fit=crop&q=80",
+		image: "/hero/hero-1.jpg",
 	},
 	{
 		id: 2,
@@ -21,9 +19,7 @@ const slides = [
 		title: "Artistry in Stone",
 		description:
 			"Home to the world-renowned Didarganj Yakshi and Mauryan masterpieces that defined an era of sculpting excellence.",
-		video: "https://cdn.coverr.co/videos/coverr-historical-statues-in-the-vatican-museum-4523/1080p.mp4",
-		poster:
-			"https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=1920&h=1080&fit=crop&q=80",
+		image: "/hero/hero-2.jpg",
 	},
 	{
 		id: 3,
@@ -31,9 +27,7 @@ const slides = [
 		title: "A Walk Through Time",
 		description:
 			"Where cutting-edge technology meets ancient heritage, creating a sensory experience unlike any other.",
-		video: "https://cdn.coverr.co/videos/coverr-walking-inside-a-museum-4527/1080p.mp4",
-		poster:
-			"https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1920&h=1080&fit=crop&q=80",
+		image: "/hero/hero-3.jpg",
 	},
 ];
 
@@ -65,16 +59,12 @@ export default function Hero() {
 					transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
 				>
 					<div className="relative w-full h-full">
-						<video
-							className="absolute inset-0 w-full h-full object-cover scale-105" // scale-105 prevents edge flickering
-							autoPlay
-							muted
-							loop
-							playsInline
-							poster={slides[currentSlide].poster}
-						>
-							<source src={slides[currentSlide].video} type="video/mp4" />
-						</video>
+						{/* eslint-disable-next-line @next/next/no-img-element */}
+						<img
+							src={slides[currentSlide].image}
+							alt=""
+							className="absolute inset-0 w-full h-full object-cover scale-105"
+						/>
 
 						{/* --- CINEMATIC GRADIENTS (Crucial for "Image Centric" look) --- */}
 

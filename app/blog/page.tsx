@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Blog | Planet Patna Foundation',
@@ -9,17 +10,30 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Article header */}
-      <section className="relative py-16 md:py-24 bg-gray-50/80 overflow-hidden text-gray-900 font-sans">
-        <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-200 z-0 hidden md:block" />
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-[1px] bg-amber-500" />
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">Engage & Learn</span>
+      {/* Article header with banner image */}
+      <section className="relative min-h-[280px] md:min-h-[320px] overflow-hidden font-sans">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/blog/blog-banner.jpeg"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center items-center text-center min-h-[280px] md:min-h-[320px] py-16 md:py-24">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-8 h-[1px] bg-amber-400" />
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-300">Engage & Learn</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight max-w-3xl">
-            From the Cradle of Civilization to a Digital City: The Journey of Patna
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight drop-shadow-md mb-3">
+            Blog
           </h1>
+          <p className="text-white/90 text-lg md:text-xl font-light max-w-xl">
+            Stories and insights from Planet Patna Foundation
+          </p>
         </div>
       </section>
 

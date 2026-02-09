@@ -107,7 +107,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Address</h3>
-                      <p className="text-gray-600">Planet Patna Museum<br />Patna, Bihar, India</p>
+                      <p className="text-gray-600">1st Floor, Dumraon Place, Fraser Road, Patna (Bihar) - 800001</p>
                     </div>
                   </div>
 

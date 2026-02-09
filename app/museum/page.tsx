@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Bal Manohar Jalan Museum | Planet Patna Foundation',
@@ -66,9 +68,6 @@ export default function MuseumPage() {
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
                 The museum&apos;s world-class collection is headlined by the <span className="text-gray-900 font-medium">Patna Qalam (Company School)</span> paintings, a rare fusion of Mughal and European styles that documents the daily lives of eighteenth- and nineteenth-century Indians. These works are complemented by a carefully curated selection of antiquities, including Patna glass and metal objects, each reflecting the sophisticated material culture of the period.
               </p>
-              <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                To support deeper historical inquiry, our space also houses the <span className="text-gray-900 font-medium">R.K. Jalan Archives</span>, a treasure trove of records and photographs tracing the city&apos;s evolution across the twentieth century. Together, these collections offer an intimate and comprehensive look at the craftsmanship and social fabric that shaped the region&apos;s vibrant heritage.
-              </p>
             </div>
             <div className="lg:col-span-6 relative w-full aspect-[3/2] rounded-2xl overflow-hidden bg-gray-50/90 ring-1 ring-black/5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)]">
               <Image
@@ -103,6 +102,32 @@ export default function MuseumPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Links to sub-pages */}
+      <section className="py-12 md:py-16 bg-gray-50/80 border-t border-gray-100">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <Link
+              href="/museum/bal-manohar-jalan"
+              className="group flex items-center justify-between p-6 border border-gray-200 rounded-xl hover:border-amber-700/50 bg-white transition-colors duration-300"
+            >
+              <span className="text-lg font-serif text-gray-900 group-hover:text-amber-700 transition-colors">
+                Bal Manohar Jalan
+              </span>
+              <ArrowRight size={20} className="text-gray-400 group-hover:text-amber-700 group-hover:translate-x-1 transition-all" />
+            </Link>
+            <Link
+              href="/museum/collection"
+              className="group flex items-center justify-between p-6 border border-gray-200 rounded-xl hover:border-amber-700/50 bg-white transition-colors duration-300"
+            >
+              <span className="text-lg font-serif text-gray-900 group-hover:text-amber-700 transition-colors">
+                Collection
+              </span>
+              <ArrowRight size={20} className="text-gray-400 group-hover:text-amber-700 group-hover:translate-x-1 transition-all" />
+            </Link>
           </div>
         </div>
       </section>

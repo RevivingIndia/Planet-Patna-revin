@@ -61,6 +61,8 @@ const MapComponent = ({
     selectedId,
     onSelect,
     fitToBounds,
+    polylineCoords,
+    polylineColor,
 }: {
     center: [number, number];
     zoom: number;
@@ -68,6 +70,8 @@ const MapComponent = ({
     selectedId: string | null;
     onSelect: (site: Site) => void;
     fitToBounds: [number, number][] | null;
+    polylineCoords: [number, number][] | null;
+    polylineColor: string | null;
 }) => {
     const [mods, setMods] = useState<Record<string, any> | null>(null);
 
@@ -77,19 +81,8 @@ const MapComponent = ({
             const rl = await import("react-leaflet");
             const leaflet = (await import("leaflet")) as any;
             const L = leaflet?.default ?? leaflet;
-            try {
-                const iconProto = L.Icon.Default.prototype as Record<string, unknown>;
-                if ("_getIconUrl" in iconProto) delete iconProto["_getIconUrl"];
-                L.Icon.Default.mergeOptions({
-                    iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-                    iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-                    shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-                });
-            } catch (e) {
-                // icon setup non-critical
-            }
             if (mounted) {
-                setMods({ MapContainer: rl.MapContainer, TileLayer: rl.TileLayer, Marker: rl.Marker, useMap: rl.useMap, L });
+                setMods({ MapContainer: rl.MapContainer, TileLayer: rl.TileLayer, Marker: rl.Marker, Polyline: rl.Polyline, useMap: rl.useMap, L });
             }
         })();
         return () => { mounted = false; };
@@ -99,7 +92,7 @@ const MapComponent = ({
         return <div className="w-full h-full bg-gray-100 flex items-center justify-center">Loading map...</div>;
     }
 
-    const { MapContainer, TileLayer, Marker, useMap, L } = mods;
+    const { MapContainer, TileLayer, Marker, Polyline, useMap, L } = mods;
 
     const MapController = () => {
         const map = useMap();
@@ -114,6 +107,8 @@ const MapComponent = ({
         return null;
     };
 
+    const routeColor = (routeId: RouteId) => ROUTES[routeId].color;
+
     return (
         <MapContainer center={center} zoom={zoom} scrollWheelZoom={false} className="w-full h-full outline-none" zoomControl={false}>
             <TileLayer
@@ -121,31 +116,42 @@ const MapComponent = ({
                 url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
             <MapController />
-            {/* Markers: only the selected one gets highlight; key forces remount so previous loses highlight */}
+            {/* Route polyline: match route color when a single route is selected */}
+            {Polyline && polylineCoords && polylineCoords.length > 1 && polylineColor && (
+                <Polyline
+                    positions={polylineCoords}
+                    pathOptions={{
+                        color: polylineColor,
+                        weight: 5,
+                        opacity: 0.85,
+                    }}
+                />
+            )}
+            {/* Markers: same classic pin as default (teardrop with round top), only color changes */}
             {sites.map((s) => {
                 const isSelected = selectedId === s.id;
-                if (isSelected && L) {
-                    const highlightIcon = L.divIcon({
-                        className: "selected-marker-wrapper",
-                        html: `<span class="selected-marker-ring"><img src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png" alt="" class="selected-marker-pin" /></span>`,
-                        iconSize: [36, 36],
-                        iconAnchor: [18, 36],
-                    });
-                    return (
-                        <Marker
-                            key={`${s.id}-selected`}
-                            position={s.coords}
-                            icon={highlightIcon}
-                            zIndexOffset={1000}
-                            eventHandlers={{ click: () => onSelect(s) }}
-                        />
-                    );
-                }
+                const color = routeColor(s.route);
+                if (!L) return null;
+                // Standard map pin shape: teardrop with rounded dot at top, point at bottom (like default Leaflet icon)
+                const pinSvg = (w: number, h: number) => `<svg width="${w}" height="${h}" viewBox="0 0 25 41" style="display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.35));"><path fill="${color}" stroke="white" stroke-width="1.2" d="M12.5 0C5.6 0 0 5.6 0 12.5c0 10.5 12.5 28.5 12.5 28.5S25 23 25 12.5C25 5.6 19.4 0 12.5 0z"/></svg>`;
+                const normalIcon = L.divIcon({
+                    className: "custom-marker-wrapper",
+                    html: `<span style="display:block;width:25px;height:41px;margin-left:-12px;margin-top:-41px;line-height:0;">${pinSvg(25, 41)}</span>`,
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                });
+                const selectedIcon = L.divIcon({
+                    className: "custom-marker-wrapper",
+                    html: `<span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;margin-left:-26px;margin-top:-52px;"><span style="position:absolute;width:52px;height:52px;border-radius:50%;background:${color}28;border:3px solid ${color};box-shadow:0 2px 10px rgba(0,0,0,0.25);"></span><span style="position:relative;margin-top:-10px;line-height:0;">${pinSvg(30, 49)}</span></span>`,
+                    iconSize: [52, 52],
+                    iconAnchor: [26, 52],
+                });
                 return (
                     <Marker
-                        key={`${s.id}-normal`}
+                        key={s.id}
                         position={s.coords}
-                        opacity={0.85}
+                        icon={isSelected ? selectedIcon : normalIcon}
+                        zIndexOffset={isSelected ? 1000 : 0}
                         eventHandlers={{ click: () => onSelect(s) }}
                     />
                 );
@@ -218,6 +224,19 @@ export default function ArtsCultureMap() {
             ? DASTAAN_SITES.map((s) => s.coords)
             : routeFilter === "gulzar"
                 ? GULZAR_SITES.map((s) => s.coords)
+                : null;
+
+    const polylineCoords: [number, number][] | null =
+        routeFilter === "dastaan"
+            ? DASTAAN_SITES.map((s) => s.coords)
+            : routeFilter === "gulzar"
+                ? GULZAR_SITES.map((s) => s.coords)
+                : null;
+    const polylineColor: string | null =
+        routeFilter === "dastaan"
+            ? ROUTES.dastaan.color
+            : routeFilter === "gulzar"
+                ? ROUTES.gulzar.color
                 : null;
 
     return (
@@ -365,6 +384,8 @@ export default function ArtsCultureMap() {
                             selectedId={activeSite.id}
                             onSelect={handleSelect}
                             fitToBounds={fitToBounds}
+                            polylineCoords={polylineCoords}
+                            polylineColor={polylineColor}
                         />
 
                         {/* Floating Info Card - Material Design Style */}

@@ -114,6 +114,20 @@ export default function ContactPage() {
                   <div className="flex items-start">
                     <div className="bg-blue-100 p-3 rounded-lg mr-4">
                       <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Phone</h3>
+                      <p className="text-gray-600">
+                        <a href="tel:+919708155555" className="hover:text-blue-600 transition-colors">+91 97081 55555</a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="bg-blue-100 p-3 rounded-lg mr-4">
+                      <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
@@ -131,26 +145,10 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Opening Hours</h3>
-                      <p className="text-gray-600">
-                        Tuesday - Sunday: 10:00 AM - 6:00 PM<br />
-                        Monday: Closed
-                      </p>
+                      <p className="text-gray-600">1:00 PM to 8:00 PM daily</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Image on the right after content */}
-            <div className="mt-16 flex justify-end">
-              <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
-                <Image
-                  src="/contact/cafe-dining.jpg"
-                  alt="Café & Dining - Planet Patna"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 512px"
-                />
               </div>
             </div>
           </div>

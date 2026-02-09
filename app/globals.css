@@ -61,3 +61,9 @@ html {
   object-fit: contain;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
 }
+
+/* Heritage map: custom route-colored markers */
+.custom-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}

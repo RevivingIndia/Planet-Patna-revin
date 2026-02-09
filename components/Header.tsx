@@ -161,15 +161,24 @@ export default function Header() {
                     >
                       Learning & Research
                     </Link>
-                    <span className="block px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed">
-                      Beyond Gallery — Coming Soon
-                    </span>
-                    <span className="block px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed">
-                      Get Involved — Coming Soon
-                    </span>
-                    <span className="block px-4 py-2.5 text-sm text-gray-400 cursor-not-allowed">
-                      Blog — Coming Soon
-                    </span>
+                    <Link
+                      href="/beyond-gallery"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Beyond Gallery
+                    </Link>
+                    <Link
+                      href="/get-involved"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Get Involved
+                    </Link>
+                    <Link
+                      href="/blog"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >
+                      Blog
+                    </Link>
                   </div>
                 </div>
               )}
@@ -308,15 +317,27 @@ export default function Header() {
               >
                 Learning & Research
               </Link>
-              <span className="block py-1.5 pl-3 text-sm text-gray-400 cursor-not-allowed">
-                Beyond Gallery — Coming Soon
-              </span>
-              <span className="block py-1.5 pl-3 text-sm text-gray-400 cursor-not-allowed">
-                Get Involved — Coming Soon
-              </span>
-              <span className="block py-1.5 pl-3 text-sm text-gray-400 cursor-not-allowed">
-                Blog — Coming Soon
-              </span>
+              <Link
+                href="/beyond-gallery"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Beyond Gallery
+              </Link>
+              <Link
+                href="/get-involved"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Get Involved
+              </Link>
+              <Link
+                href="/blog"
+                className="block py-1.5 pl-3 text-gray-800 hover:text-blue-600 font-normal transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
             </div>
             <Link
               href="/heritage-walk"

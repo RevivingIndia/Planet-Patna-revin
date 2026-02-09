@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import ClubMembershipForm from '@/components/ClubMembershipForm';
 
 export const metadata: Metadata = {
   title: 'Club | Planet Patna Foundation',
@@ -70,6 +71,8 @@ export default function ClubPage() {
               </div>
             </div>
           </div>
+
+          <ClubMembershipForm />
         </div>
       </section>
     </main>

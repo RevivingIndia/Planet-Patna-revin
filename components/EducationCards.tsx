@@ -25,14 +25,14 @@ const cards = [
         category: 'OUTREACH',
         description: 'Extending the museum experience into the city with pop-up displays and digital heritage trails.',
         image: '/beyond-the-walls/beyond-gallery.jpg',
-        href: '#',
+        href: '/beyond-gallery',
     },
     {
         title: 'Get Involved',
         category: 'MEMBERSHIP',
         description: 'Become a patron of the arts. Enjoy exclusive access to previews, curator talks, and private viewings.',
         image: '/beyond-the-walls/get-involved.jpg',
-        href: '#',
+        href: '/get-involved',
     },
 ];
 

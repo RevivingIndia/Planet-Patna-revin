@@ -8,25 +8,25 @@ const slides = [
 	{
 		id: 1,
 		subtitle: "WELCOME TO PLANET PATNA",
-		title: "The Legacy of Pataliputra",
+		title: "A City Once on the Bank of Ganga",
 		description:
-			"Journey through 2,500 years of history in India's first experiential museum. Witness the rise and fall of empires.",
+			"Patna, anciently known as Pataliputra, stands as one of the oldest continuously inhabited cities in the world. Once the seat of power for the mighty Mauryan and Gupta Empires, it was the epicenter of a civilization that stretched across the subcontinent.",
 		image: "/hero/hero-1.jpg",
 	},
 	{
 		id: 2,
-		subtitle: "RARE ARTIFACTS",
-		title: "Artistry in Stone",
+		subtitle: "Organized to Honor",
+		title: "Royal Melodies at Quila",
 		description:
-			"Home to the world-renowned Didarganj Yakshi and Mauryan masterpieces that defined an era of sculpting excellence.",
+			"A ceremonial band performing at Patna's Quila House hiterto known as Sher Shah Suri's fort, set against the scenic backdrop of the River Ganga.",
 		image: "/hero/hero-2.jpg",
 	},
 	{
 		id: 3,
-		subtitle: "IMMERSIVE SPACES",
+		subtitle: "Definition of that era",
 		title: "A Walk Through Time",
 		description:
-			"Where cutting-edge technology meets ancient heritage, creating a sensory experience unlike any other.",
+			"Hindu marriage processions are elaborate public celebrations with music, lamps, and community participation. The marriage procession of Mr. Hira Lal Jalan, son of Radha Krishna Jalan, reflects the city’s rich mercantile culture and traditional wedding customs of the time.",
 		image: "/hero/hero-3.jpg",
 	},
 ];
@@ -120,7 +120,7 @@ export default function Hero() {
 										transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
 									},
 								}}
-								className="text-6xl md:text-8xl lg:text-[7rem] font-serif text-white leading-[0.9] tracking-tight mb-8 drop-shadow-2xl"
+								className="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-[0.9] tracking-tight mb-8 drop-shadow-2xl"
 							>
 								{slides[currentSlide].title}
 							</motion.h1>
@@ -131,7 +131,7 @@ export default function Hero() {
 									hidden: { opacity: 0, y: 20 },
 									visible: { opacity: 1, y: 0 },
 								}}
-								className="text-white/80 text-lg md:text-xl font-light leading-relaxed tracking-wide max-w-lg mb-12"
+								className="text-white/80 text-base md:text-lg font-light leading-relaxed tracking-wide max-w-lg mb-12"
 							>
 								{slides[currentSlide].description}
 							</motion.p>

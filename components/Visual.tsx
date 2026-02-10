@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Play, Instagram, ArrowUpRight } from 'lucide-react';
+import { Instagram, ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
 
 export default function VisualChronicle() {
@@ -55,24 +55,13 @@ export default function VisualChronicle() {
                         className="md:col-span-2 md:row-span-2 relative group rounded-2xl overflow-hidden bg-stone-900 border border-stone-800"
                     >
                         <div className="absolute inset-0 z-0">
-                            {/* UPDATED: High-quality museum sculpture video */}
-                            <video
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 ease-out"
-                            >
-                                {/* Using a Pexels stock video of ancient sculptures */}
-                                <source src="https://media.istockphoto.com/id/1500213833/video/time-lapse-of-crowd-traffic-and-commuter-tourism-people-in-trafalgar-square-area-with.mp4?s=mp4-640x640-is&k=20&c=HIqoooSIDcY3DPkdx06-_B9BXa6n-RYrLNZIW15w0t4=" type="video/mp4" />
-                            </video>
-                        </div>
-
-                        {/* Play Button Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center z-10">
-                            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-amber-700 transition-colors duration-300 cursor-pointer">
-                                <Play className="fill-white text-white ml-1" size={32} />
-                            </div>
+                            <iframe
+                                src="https://www.youtube.com/embed/uGk8mbj0cTc?autoplay=1&mute=1&loop=1&playlist=uGk8mbj0cTc"
+                                title="Glimpses of History"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                            />
                         </div>
 
                         <div className="absolute bottom-0 left-0 p-8 z-10">

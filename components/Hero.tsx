@@ -7,10 +7,10 @@ import { ArrowRight } from "lucide-react";
 const slides = [
 	{
 		id: 1,
-		subtitle: "WELCOME TO PLANET PATNA",
-		title: "A City Once on the Bank of Ganga",
+		subtitle: "Definition of that era",
+		title: "A Walk Through Time",
 		description:
-			"Patna, anciently known as Pataliputra, stands as one of the oldest continuously inhabited cities in the world. Once the seat of power for the mighty Mauryan and Gupta Empires, it was the epicenter of a civilization that stretched across the subcontinent.",
+			"Hindu marriage processions are elaborate public celebrations with music, lamps, and community participation. The marriage procession of Mr. Hira Lal Jalan, son of Radha Krishna Jalan, reflects the city's rich mercantile culture and traditional wedding customs of the time.",
 		image: "/hero/hero-1.jpg",
 	},
 	{
@@ -23,10 +23,10 @@ const slides = [
 	},
 	{
 		id: 3,
-		subtitle: "Definition of that era",
-		title: "A Walk Through Time",
+		subtitle: "WELCOME TO PLANET PATNA",
+		title: "A City Once on the Bank of Ganga",
 		description:
-			"Hindu marriage processions are elaborate public celebrations with music, lamps, and community participation. The marriage procession of Mr. Hira Lal Jalan, son of Radha Krishna Jalan, reflects the city’s rich mercantile culture and traditional wedding customs of the time.",
+			"Patna, anciently known as Pataliputra, stands as one of the oldest continuously inhabited cities in the world. Once the seat of power for the mighty Mauryan and Gupta Empires, it was the epicenter of a civilization that stretched across the subcontinent.",
 		image: "/hero/hero-3.jpg",
 	},
 ];

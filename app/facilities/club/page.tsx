@@ -38,11 +38,18 @@ export default function ClubPage() {
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-[1px] bg-amber-500" />
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
-                  Club
-                </span>
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-8 h-[1px] bg-amber-500" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-stone-400">
+                    Facilities
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
+                  <span className="font-serif italic text-amber-800">
+                    Club
+                  </span>
+                </h2>
               </div>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
                 The Club at Planet Patna serves as an exclusive urban sanctuary, thoughtfully designed to foster social excellence and intellectual growth within the heart of the city. More than just a recreational space, it acts as a vibrant centre where local heritage meets modern lifestyle. Members enjoy a curated atmosphere that balances high-energy professional engagement with serene relaxation, making it the premier destination for Patna&apos;s residents to connect, collaborate, and unwind.

@@ -14,14 +14,22 @@ export default function BalManoharJalanPage() {
     <main className="min-h-screen bg-white">
       {/* Banner Header - same as Museum page */}
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
-        <Image
-          src="/museum/banner.jpg"
-          alt="Bal Manohar Jalan - Planet Patna Foundation"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
+        <a
+          href="/museum/banner.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full h-full cursor-pointer"
+        >
+          <Image
+            src="/museum/banner.jpg"
+            alt="Bal Manohar Jalan - Planet Patna Foundation"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <span className="sr-only">Open museum header image in a new tab</span>
+        </a>
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-4">
@@ -43,10 +51,18 @@ export default function BalManoharJalanPage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             {/* Text */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="mb-4">
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
-                  Legacy
-                </span>
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-8 h-[1px] bg-amber-500" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-stone-400">
+                    Our Museum
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
+                  <span className="font-serif italic text-amber-800">
+                    Bal Manohar Jalan
+                  </span>
+                </h2>
               </div>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
                 <span className="text-gray-900 font-medium">Bal Manohar Jalan</span>, grandson of Dewan Bahadur Radha Krishna Jalan, is a key figure whose lifelong passion for preservation laid the groundwork for the Planet Patna Foundation. Raised in the historic Quila House of Patna City, he grew up surrounded by antiques, artworks, and historical objects that shaped his early intellectual curiosity.
@@ -64,14 +80,20 @@ export default function BalManoharJalanPage() {
 
             {/* Image from public/ - plain img to avoid Next.js processing (large file) */}
             <div className="lg:col-span-5">
-              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 bg-gray-100">
+              <a
+                href="/museum/bal-manohar-jalan.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 bg-gray-100"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/museum/bal-manohar-jalan.jpg"
                   alt="Bal Manohar Jalan"
                   className="w-full h-full object-cover object-center"
                 />
-              </div>
+                <span className="sr-only">Open Bal Manohar Jalan portrait in a new tab</span>
+              </a>
             </div>
           </div>
         </div>

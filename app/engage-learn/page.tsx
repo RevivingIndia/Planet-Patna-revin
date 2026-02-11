@@ -79,11 +79,18 @@ export default function EngageLearnPage() {
       <section className="relative py-16 md:py-24 bg-white overflow-hidden text-gray-900 font-sans">
         <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-100 z-0 hidden md:block" />
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="flex items-center gap-3 mb-12">
-            <span className="w-8 h-[1px] bg-amber-500" />
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
-              Our Programs
-            </span>
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-8 h-[1px] bg-amber-500" />
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-stone-400">
+                Our Programs
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
+              <span className="font-serif italic text-amber-800">
+                Engage &amp; Learn
+              </span>
+            </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {ENGAGE_ITEMS.map((item) =>

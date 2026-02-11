@@ -1,13 +1,9 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-import { ArrowLeft } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: 'Collection | Planet Patna Foundation',
-  description:
-    'Company School paintings at the Bal Manohar Jalan Museum—Patna Qalam, Murshidabad, Awadh, Benaras, Tanjore, and Trichinopoly traditions.',
-};
+import { ArrowLeft, X } from 'lucide-react';
 
 const SECTIONS = [
   {
@@ -79,20 +75,37 @@ const SECTIONS = [
 ];
 
 export default function MuseumCollectionPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (src: string) => {
+    setSelectedImage(src);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
     <main className="min-h-screen bg-white">
       {/* Banner Header - same as Museum page */}
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
-        <Image
-          src="/museum/banner.jpg"
-          alt="Collection - Planet Patna Foundation"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          onClick={() => openModal('/museum/banner.jpg')}
+          className="block w-full h-full cursor-pointer"
+        >
+          <Image
+            src="/museum/banner.jpg"
+            alt="Collection - Planet Patna Foundation"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="text-center px-4">
             <span className="block text-xs font-bold tracking-[0.25em] uppercase text-amber-300/90 mb-2">
               Our Museum
@@ -150,10 +163,16 @@ export default function MuseumCollectionPage() {
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               {/* Text */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
-                    {section.number}. {section.title}
-                  </span>
+                <div className="mb-2">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="w-8 h-[1px] bg-amber-500" />
+                    <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
+                      {section.number.toString().padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
+                    {section.title}
+                  </h2>
                 </div>
                 {section.content.map((paragraph, i) => (
                   <p key={i} className="text-gray-500 font-light leading-relaxed text-base text-justify">
@@ -164,7 +183,10 @@ export default function MuseumCollectionPage() {
 
               {/* Image - plain img so all section images (incl. Awadh) load reliably */}
               <div className="lg:col-span-5">
-                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 bg-gray-100">
+                <div
+                  onClick={() => openModal(section.image)}
+                  className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 bg-gray-100 cursor-pointer hover:opacity-95 transition-opacity"
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={section.image}
@@ -190,6 +212,36 @@ export default function MuseumCollectionPage() {
           </Link>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300"
+          onClick={closeModal}
+        >
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-50 p-2"
+          >
+            <X size={32} />
+            <span className="sr-only">Close</span>
+          </button>
+
+          <div
+            className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center p-4 md:p-8 md:p-12"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={selectedImage}
+                alt="Full screen view"
+                className="object-contain max-w-full max-h-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

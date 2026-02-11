@@ -37,11 +37,18 @@ export default function CafePage() {
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-[1px] bg-amber-500" />
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
-                  Café
-                </span>
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-8 h-[1px] bg-amber-500" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-stone-400">
+                    Facilities
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
+                  <span className="font-serif italic text-amber-800">
+                    Café
+                  </span>
+                </h2>
               </div>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
                 The Café at Planet Patna serves as a sophisticated culinary retreat designed to meet the diverse needs of our discerning visitors and members. This refined space functions as a versatile social hub, offering a curated menu of premium coffee and artisanal fare within a tranquil, modern atmosphere. Whether facilitating high-level professional consultations, providing a quiet enclave for intellectual reflection, or acting as a vibrant venue for community engagement, our Café exemplifies our commitment to exceptional hospitality. It is a space where the pursuit of leisure meets the spark of meaningful dialogue, making it an essential destination for both productivity and relaxation.

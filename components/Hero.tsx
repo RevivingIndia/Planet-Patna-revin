@@ -151,7 +151,24 @@ export default function Hero() {
 				</div>
 			</div>
 
-			{/* 3. NAVIGATION CONTROLS removed: stacked editorial cards moved to a standalone component below the hero. */}
+			{/* 3. SLIDER DOT NAVIGATION */}
+			<div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
+				{slides.map((slide, index) => (
+					<button
+						key={slide.id}
+						type="button"
+						onClick={() => setCurrentSlide(index)}
+						className={`h-2.5 rounded-full border border-white/40 transition-all duration-300 ${
+							currentSlide === index
+								? "w-6 bg-amber-500 shadow-[0_0_0_4px_rgba(0,0,0,0.35)]"
+								: "w-2.5 bg-white/20 hover:bg-white/40"
+						}`}
+						aria-label={`Go to slide ${index + 1}`}
+					/>
+				))}
+			</div>
+
+			{/* 4. NAVIGATION CONTROLS removed: stacked editorial cards moved to a standalone component below the hero. */}
 		</div>
 	);
 }

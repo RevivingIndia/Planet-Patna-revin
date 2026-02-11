@@ -1,13 +1,9 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-import { ArrowRight } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: 'Bal Manohar Jalan Museum | Planet Patna Foundation',
-  description:
-    'The Bal Manohar Jalan Museum is the flagship museum initiative of the Planet Patna Foundation, featuring Patna Qalam (Company School) paintings, antiquities, and the R.K. Jalan Archives.',
-};
+import { ArrowRight, X } from 'lucide-react';
 
 const GALLERY_IMAGES = [
   { src: '/museum/dsc-5104.jpg', alt: 'Bal Manohar Jalan Museum - Gallery view' },
@@ -16,20 +12,37 @@ const GALLERY_IMAGES = [
 ];
 
 export default function MuseumPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (src: string) => {
+    setSelectedImage(src);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset'; // Restore scrolling
+  };
+
   return (
     <main className="min-h-screen bg-white">
       {/* Banner Header - same style as Archives */}
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
-        <Image
-          src="/museum/banner.jpg"
-          alt="Bal Manohar Jalan Museum - Planet Patna Foundation"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          onClick={() => openModal('/museum/banner.jpg')}
+          className="block w-full h-full cursor-pointer"
+        >
+          <Image
+            src="/museum/banner.jpg"
+            alt="Bal Manohar Jalan Museum - Planet Patna Foundation"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="text-center px-4">
             <span className="block text-xs font-bold tracking-[0.25em] uppercase text-amber-300/90 mb-2">
               Our Museum
@@ -59,24 +72,35 @@ export default function MuseumPage() {
             </h2>
           </div>
 
-          {/* Text left, wall-painting right */}
+          {/* Image left, text right */}
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16 md:mb-20">
+            <div className="lg:col-span-6 relative w-full aspect-[3/2] rounded-2xl overflow-hidden bg-gray-50/90 ring-1 ring-black/5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)]">
+              <div
+                onClick={() => openModal('/museum/wall-painting.jpg')}
+                className="block w-full h-full cursor-pointer hover:opacity-95 transition-opacity"
+              >
+                <Image
+                  src="/museum/wall-painting.jpg"
+                  alt="Bal Manohar Jalan Museum - Wall painting and heritage art"
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
             <div className="lg:col-span-6 space-y-6">
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                The <span className="text-gray-900 font-medium">Bal Manohar Jalan Museum</span> is the flagship museum initiative of the Planet Patna Foundation, conceived as a contemporary cultural institution dedicated to safeguarding the region&apos;s pre-independence and early modern legacy.
+                The <span className="text-gray-900 font-medium">Bal Manohar Jalan Museum</span> is the flagship museum
+                initiative of the Planet Patna Foundation, conceived as a contemporary cultural institution dedicated to
+                safeguarding the region&apos;s pre-independence and early modern legacy.
               </p>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                The museum&apos;s world-class collection is headlined by the <span className="text-gray-900 font-medium">Patna Qalam (Company School)</span> paintings, a rare fusion of Mughal and European styles that documents the daily lives of eighteenth- and nineteenth-century Indians. These works are complemented by a carefully curated selection of antiquities, including Patna glass and metal objects, each reflecting the sophisticated material culture of the period.
+                The museum&apos;s world-class collection is headlined by the{' '}
+                <span className="text-gray-900 font-medium">Patna Qalam (Company School)</span> paintings, a rare fusion
+                of Mughal and European styles that documents the daily lives of eighteenth- and nineteenth-century
+                Indians. These works are complemented by a carefully curated selection of antiquities, including Patna
+                glass and metal objects, each reflecting the sophisticated material culture of the period.
               </p>
-            </div>
-            <div className="lg:col-span-6 relative w-full aspect-[3/2] rounded-2xl overflow-hidden bg-gray-50/90 ring-1 ring-black/5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)]">
-              <Image
-                src="/museum/wall-painting.jpg"
-                alt="Bal Manohar Jalan Museum - Wall painting and heritage art"
-                fill
-                className="object-contain object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
             </div>
           </div>
 
@@ -90,7 +114,8 @@ export default function MuseumPage() {
             {GALLERY_IMAGES.map((img) => (
               <div
                 key={img.src}
-                className="relative aspect-[4/5] rounded-2xl overflow-hidden group shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5"
+                onClick={() => openModal(img.src)}
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden group shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 block cursor-pointer"
               >
                 <Image
                   src={img.src}
@@ -131,6 +156,38 @@ export default function MuseumPage() {
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300"
+          onClick={closeModal}
+        >
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-50 p-2"
+          >
+            <X size={32} />
+            <span className="sr-only">Close</span>
+          </button>
+
+          <div
+            className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center p-4 md:p-8 md:p-12"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image
+                src={selectedImage}
+                alt="Full screen view"
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

@@ -84,7 +84,7 @@ export default function FacilitiesPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-amber-700 transition-colors">
+                  <h2 className="text-lg font-serif text-gray-900 mb-2 group-hover:text-amber-700 transition-colors">
                     {facility.title}
                   </h2>
                   <p className="text-gray-500 font-light text-sm leading-relaxed">

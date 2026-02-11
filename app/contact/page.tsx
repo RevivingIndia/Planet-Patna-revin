@@ -5,14 +5,22 @@ export default function ContactPage() {
     <main className="min-h-screen bg-white">
       {/* Banner Header */}
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
-        <Image
-          src="/contact/contact-banner.jpg"
-          alt="Contact Us - Planet Patna Foundation"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
+        <a
+          href="/contact/contact-banner.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full h-full cursor-pointer"
+        >
+          <Image
+            src="/contact/contact-banner.jpg"
+            alt="Contact Us - Planet Patna Foundation"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <span className="sr-only">Open contact header image in a new tab</span>
+        </a>
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-4">

@@ -56,31 +56,14 @@ function ProductQuickView({
                     <X size={20} className="text-gray-800" />
                 </button>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                    <div className="relative aspect-square bg-stone-100">
-                        <Image
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                    </div>
-                    <div className="p-6 md:p-8 flex flex-col justify-center">
-                        <h2 className="text-xl font-serif text-gray-900 mb-2">
-                            {product.name}
-                        </h2>
-                        <p className="text-stone-600 text-sm leading-relaxed mb-6">
-                            {product.description}
-                        </p>
-                        <button
-                            type="button"
-                            onClick={onClose}
-                            className="w-full py-3 px-4 bg-gray-900 text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-amber-700 transition-colors"
-                        >
-                            Close
-                        </button>
-                    </div>
+                <div className="relative w-full aspect-[4/5] bg-stone-100">
+                    <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                 </div>
             </motion.div>
         </motion.div>

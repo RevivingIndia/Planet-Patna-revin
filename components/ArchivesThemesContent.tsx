@@ -85,7 +85,11 @@ const SECTIONS = [
   },
 ];
 
-export default function ArchivesThemesContent() {
+export default function ArchivesThemesContent({
+  onImageClick,
+}: {
+  onImageClick?: (src: string) => void;
+}) {
   return (
     <section className="relative py-16 md:py-24 bg-stone-50/50 overflow-hidden text-gray-900 font-sans">
       <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
@@ -104,7 +108,10 @@ export default function ArchivesThemesContent() {
                 <div
                   className={`relative lg:col-span-5 ${!imageLeft ? 'lg:order-2' : ''}`}
                 >
-                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 group">
+                  <div
+                    onClick={() => onImageClick?.(section.img)}
+                    className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 group cursor-pointer"
+                  >
                     <Image
                       src={section.img}
                       alt={section.title}

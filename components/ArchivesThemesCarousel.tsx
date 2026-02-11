@@ -18,7 +18,11 @@ const ARCHIVE_THEMES = [
   { id: '9', href: '#beyond-patna', category: 'ARCHIVAL THEMES', title: 'Beyond Patna', img: '/archives/beyond-patna.jpg' },
 ];
 
-export default function ArchivesThemesCarousel() {
+export default function ArchivesThemesCarousel({
+  onImageClick,
+}: {
+  onImageClick?: (src: string) => void;
+}) {
   const [center, setCenter] = useState<number>(4); // Start at middle for 9 items
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -77,12 +81,13 @@ export default function ArchivesThemesCarousel() {
                 }}
               >
                 <div
+                  onClick={() => isActive && onImageClick?.(item.img)}
                   className={`
                     relative
                     w-[280px] h-[420px] md:w-[340px] md:h-[500px]
                     bg-gray-200 overflow-hidden
                     transition-all duration-500 ease-out
-                    ${isActive ? 'shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)]' : 'shadow-xl grayscale-[100%]'}
+                    ${isActive ? 'shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] cursor-pointer' : 'shadow-xl grayscale-[100%]'}
                   `}
                 >
                   <Image
@@ -95,7 +100,7 @@ export default function ArchivesThemesCarousel() {
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-40'}`} />
 
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 pointer-events-none">
                     <motion.div
                       initial={false}
                       animate={{
@@ -110,15 +115,18 @@ export default function ArchivesThemesCarousel() {
                       <h3 className="text-2xl md:text-3xl font-light text-white leading-tight mb-2">
                         {item.title}
                       </h3>
-                      <Link
-                        href={item.href}
-                        className="group inline-flex items-center text-xs font-bold tracking-widest text-white mt-4 uppercase"
-                      >
-                        View Story
-                        <span className="ml-2 bg-white text-black rounded-full p-1 transition-transform group-hover:translate-x-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                      </Link>
+                      <div className="pointer-events-auto inline-block">
+                        <Link
+                          href={item.href}
+                          onClick={(e) => e.stopPropagation()}
+                          className="group inline-flex items-center text-xs font-bold tracking-widest text-white mt-4 uppercase"
+                        >
+                          View Story
+                          <span className="ml-2 bg-white text-black rounded-full p-1 transition-transform group-hover:translate-x-2">
+                            <ArrowRight className="w-3 h-3" />
+                          </span>
+                        </Link>
+                      </div>
                     </motion.div>
                   </div>
                 </div>

@@ -2,6 +2,7 @@ import Hero from '@/components/Hero';
 import ShopWithUs from '@/components/ShopWithUs';
 import StackCarousel from '@/components/StackCarousel';
 import AboutUs from '@/components/AboutUs';
+import HomeContact from '@/components/HomeContact';
 import ArchivalJourney from '@/components/ArchivalJourney';
 import MuseumJourney from '@/components/MuseumJourney';
 import ThreeCards from '@/components/ThreeCards';
@@ -25,6 +26,7 @@ export default function Home() {
       <VisualChronicle />
       <ThreeCards />
       <ShopWithUs />
+      <HomeContact />
     </main>
   );
 }

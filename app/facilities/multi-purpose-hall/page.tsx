@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import FacilitiesBookingForm from '@/components/FacilitiesBookingForm';
 
 export const metadata: Metadata = {
-  title: 'Multi-purpose Hall | Planet Patna Foundation',
+  title: 'Multi-Purpose Hall | Planet Patna Foundation',
   description:
     'A dedicated, flexible venue for conferences, lectures, workshops, and events. Available for rental.',
 };
@@ -14,7 +14,7 @@ export default function MultiPurposeHallPage() {
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
         <Image
           src="/amenities-services/mph.jpg"
-          alt="Multi-purpose Hall - Planet Patna Foundation"
+          alt="Multi-Purpose Hall - Planet Patna Foundation"
           fill
           className="object-cover object-center"
           priority
@@ -27,7 +27,7 @@ export default function MultiPurposeHallPage() {
               Facilities
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight">
-              Multi-purpose Hall
+              Multi-Purpose Hall
             </h1>
           </div>
         </div>
@@ -38,11 +38,18 @@ export default function MultiPurposeHallPage() {
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-[1px] bg-amber-500" />
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
-                  Multi-purpose Hall
-                </span>
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-8 h-[1px] bg-amber-500" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-stone-400">
+                    Facilities
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
+                  <span className="font-serif italic text-amber-800">
+                    Multi-Purpose Hall
+                  </span>
+                </h2>
               </div>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
                 The Multipurpose Hall is a dedicated, flexible venue designed to host a wide range of events and gatherings independent of the museum exhibition spaces. Conceived as a multifunctional environment, the hall accommodates conferences, lectures, workshops, panel discussions, cultural programs, and private events hosted both by the Foundation and external organizations.
@@ -58,7 +65,7 @@ export default function MultiPurposeHallPage() {
               <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 bg-gray-100">
                 <Image
                   src="/explore/mph.jpg"
-                  alt="Multi-purpose Hall - Planet Patna"
+                  alt="Multi-Purpose Hall - Planet Patna"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"

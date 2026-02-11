@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Coffee, Building2, Users } from 'lucide-react';
 
@@ -11,6 +12,7 @@ const facilities = [
         icon: <Coffee size={24} />,
         description: 'Enjoy refreshments and a relaxed break at our on-site café between exhibits.',
         image: '/amenities-services/cafe-dining.jpg',
+        href: '/facilities/cafe',
     },
     {
         title: 'Multi Purpose Hall',
@@ -18,6 +20,7 @@ const facilities = [
         icon: <Building2 size={24} />,
         description: 'A flexible space for lectures, workshops, conferences, and cultural gatherings.',
         image: '/amenities-services/mph.jpg',
+        href: '/facilities/multi-purpose-hall',
     },
     {
         title: 'Club',
@@ -25,6 +28,7 @@ const facilities = [
         icon: <Users size={24} />,
         description: 'A private forum for thinkers, patrons, and cultural leaders to engage through curated events and discussions.',
         image: '/amenities-services/club.jpg',
+        href: '/facilities/club',
     },
 ];
 
@@ -50,14 +54,13 @@ export default function OurFacilities() {
                 {/* The Arched Grid */}
                 <div className="grid md:grid-cols-3 gap-12">
                     {facilities.map((facility, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2, duration: 0.6 }}
-                            className="group text-center"
-                        >
+                        <Link key={index} href={facility.href} className="group text-center">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.2, duration: 0.6 }}
+                            >
 
                             {/* Image Container (The Arch) */}
                             <div className="relative mx-auto w-full max-w-[320px] h-[420px] mb-10">
@@ -89,9 +92,9 @@ export default function OurFacilities() {
 
                             {/* Text Content */}
                             <div className="px-4">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 block">
-                  {facility.subtitle}
-                </span>
+                                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 block">
+                                    {facility.subtitle}
+                                </span>
                                 <h3 className="text-2xl font-serif text-gray-900 mb-4 group-hover:text-amber-700 transition-colors duration-300">
                                     {facility.title}
                                 </h3>
@@ -100,7 +103,8 @@ export default function OurFacilities() {
                                 </p>
                             </div>
 
-                        </motion.div>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>

@@ -41,6 +41,16 @@ export default function BlogPage() {
       <section className="relative py-12 md:py-16 bg-white overflow-hidden text-gray-900 font-sans">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <article className="max-w-3xl mx-auto space-y-6">
+            <div className="mb-8 text-center">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="w-8 h-[1px] bg-amber-400" />
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-500">Article</span>
+                <span className="w-8 h-[1px] bg-amber-400" />
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight leading-tight">
+                From the Cradle of Civilization to a Digital City: The Journey of Patna
+              </h2>
+            </div>
             <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
               Have you ever wondered how the modern, digitalized city of Patna, as we see it today, has witnessed almost the entire journey of human civilization? Situated in the Central Ganga Plains, Patna stands on a land that has seen continuous human settlement from prehistoric times to the present day.
             </p>

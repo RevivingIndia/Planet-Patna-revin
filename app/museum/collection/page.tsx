@@ -170,8 +170,10 @@ export default function MuseumCollectionPage() {
                       {section.number.toString().padStart(2, '0')}
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight">
-                    {section.title}
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight mb-6 md:mb-8">
+                    <span className="font-serif italic text-amber-800">
+                      {section.title}
+                    </span>
                   </h2>
                 </div>
                 {section.content.map((paragraph, i) => (

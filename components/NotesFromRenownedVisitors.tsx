@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
@@ -13,8 +13,52 @@ const visitors = [
   { name: 'Suresh Rungta', image: '/notes-from-renowned-visitors/suresh-rungta.jpg' },
 ];
 
+// Carousel items: alternating videos and images, 8 items total (4 per slide)
+const carouselItems: Array<
+  | { type: 'iframe'; id: string }
+  | { type: 'image'; src: string; alt?: string }
+> = [
+  { type: 'iframe', id: 'DSceMoZDU8m' },
+  { type: 'image', src: '/notes-from-renowned-visitors/kamini-kabir-mustafi-2.jpg', alt: 'Kamini and Kabir Mustafi' },
+  { type: 'iframe', id: 'DSXGxqJjX0d' },
+  { type: 'image', src: '/notes-from-renowned-visitors/pradip-jain-2.jpg', alt: 'Pradip Jain' },
+  { type: 'image', src: '/notes-from-renowned-visitors/sunil-chakraborty-2.jpg', alt: 'Sunil Chakraborty' },
+  { type: 'iframe', id: 'DR6zDqODabS' },
+  { type: 'image', src: '/notes-from-renowned-visitors/suresh-rungta-2.jpg', alt: 'Suresh Rungta' },
+  { type: 'iframe', id: 'DNtN1Pj5qdG' },
+];
+
 export default function NotesFromRenownedVisitors() {
   const [enlarged, setEnlarged] = useState<typeof visitors[0] | null>(null);
+  const [slide, setSlide] = useState(0); // 0 or 1 (two pages)
+  const slidesCount = 2; // Two pages of 4 items each from 8 carousel items
+
+  useEffect(() => {
+    // Load Instagram embed script once, then process embeds.
+    const existing = document.querySelector("script[src*='instagram.com/embed.js']");
+    const runProcess = () => {
+      // @ts-ignore
+      if (window.instgrm && typeof window.instgrm.Embeds !== 'undefined' && window.instgrm.Embeds.process) {
+        // @ts-ignore
+        window.instgrm.Embeds.process();
+      }
+    };
+
+    if (existing) {
+      runProcess();
+      return;
+    }
+
+    const s = document.createElement('script');
+    s.src = 'https://www.instagram.com/embed.js';
+    s.async = true;
+    s.defer = true;
+    s.onload = runProcess;
+    document.body.appendChild(s);
+    return () => {
+      // keep script to avoid reloading during navigation; do not remove
+    };
+  }, [slide]);
 
   return (
     <section className="relative py-16 md:py-24 bg-gray-50/80 overflow-hidden text-gray-900 font-sans">
@@ -38,36 +82,62 @@ export default function NotesFromRenownedVisitors() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {visitors.map((visitor, index) => (
+        <div className="relative">
+          <div className="overflow-hidden rounded-xl">
             <motion.div
-              key={visitor.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
+              initial={false}
+              animate={{ x: `-${slide * (100 / slidesCount)}%` }}
+              transition={{ type: 'tween', duration: 0.5 }}
+              className="flex w-[200%]"
             >
-              <button
-                type="button"
-                onClick={() => setEnlarged(visitor)}
-                className="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 mb-4 block cursor-zoom-in text-left"
-                aria-label={`Enlarge ${visitor.name}`}
-              >
-                <Image
-                  src={visitor.image}
-                  alt={visitor.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
-              <p className="text-center text-sm font-medium text-gray-700 tracking-tight">
-                {visitor.name}
-              </p>
+              {carouselItems.map((item, idx) => (
+                <div key={idx} className="flex-shrink-0 w-1/8 p-2">
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (idx % 4) * 0.08 }}
+                    className="rounded-lg overflow-hidden bg-black/5 shadow-sm"
+                  >
+                    {item.type === 'image' ? (
+                      <button
+                        type="button"
+                        onClick={() => setEnlarged({ name: item.alt || 'Photo', image: item.src } as any)}
+                        className="relative aspect-square w-full block cursor-zoom-in text-left"
+                        aria-label={`Enlarge ${item.alt || 'photo'}`}
+                      >
+                        <Image src={item.src} alt={item.alt || 'photo'} fill className="object-contain bg-gray-100" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" priority={idx < 2} />
+                      </button>
+                    ) : (
+                      <div className="relative aspect-square w-full overflow-hidden">
+                        <blockquote
+                          className="instagram-media w-full h-full"
+                          data-instgrm-permalink={`https://www.instagram.com/reel/${item.id}/`}
+                          data-instgrm-version="14"
+                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                        >
+                          <a href={`https://www.instagram.com/reel/${item.id}/`}>
+                            View Instagram Reel
+                          </a>
+                        </blockquote>
+                      </div>
+                    )}
+                  </motion.div>
+                </div>
+              ))}
             </motion.div>
-          ))}
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-3">
+            {Array.from({ length: slidesCount }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setSlide(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`w-3 h-3 rounded-full ${i === slide ? 'bg-amber-700' : 'bg-gray-300'}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

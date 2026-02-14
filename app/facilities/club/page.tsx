@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import ClubMembershipForm from '@/components/ClubMembershipForm';
 
 export const metadata: Metadata = {
   title: 'Club | Planet Patna Foundation',
@@ -76,10 +75,23 @@ export default function ClubPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
+              <div className="mt-10 p-6 md:p-8 rounded-2xl bg-white ring-1 ring-black/5 overflow-hidden">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Club Form</h3>
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSf0yOTBTX-P98Cxvx4iDDDk_gFVhl-sOVsevBC0NGchQYLiXw/viewform?embedded=true"
+                  width="100%"
+                  height="600"
+                  frameBorder={0}
+                  marginHeight={0}
+                  marginWidth={0}
+                  className="rounded-lg min-h-[500px]"
+                  title="Club - Google Form"
+                >
+                  Loading…
+                </iframe>
+              </div>
             </div>
           </div>
-
-          <ClubMembershipForm />
         </div>
       </section>
     </main>

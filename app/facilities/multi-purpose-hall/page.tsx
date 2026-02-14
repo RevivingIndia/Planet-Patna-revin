@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import FacilitiesBookingForm from '@/components/FacilitiesBookingForm';
 
 export const metadata: Metadata = {
   title: 'Multi-Purpose Hall | Planet Patna Foundation',
@@ -71,7 +70,22 @@ export default function MultiPurposeHallPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <FacilitiesBookingForm />
+              <div className="mt-10 p-6 md:p-8 rounded-2xl bg-gray-50 ring-1 ring-black/5 overflow-hidden">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Enquiry / Booking Form</h3>
+                <p className="text-sm text-gray-500 mb-4">Fill out the form and we&apos;ll get back to you.</p>
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLScNKDddgzz6tgKza9XZJmSPjZi9b93du3ZFRYeRbnZEZCO2gQ/viewform?embedded=true"
+                  width="100%"
+                  height="600"
+                  frameBorder={0}
+                  marginHeight={0}
+                  marginWidth={0}
+                  className="rounded-lg min-h-[500px]"
+                  title="Enquiry / Booking Form - Google Form"
+                >
+                  Loading…
+                </iframe>
+              </div>
             </div>
           </div>
         </div>

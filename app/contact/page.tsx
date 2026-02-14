@@ -35,69 +35,31 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Form + Get in Touch only */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Form */}
+              {/* Google Form */}
               <div>
                 <h2 className="text-3xl font-bold mb-6">Send us a Message</h2>
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                      placeholder="Enter subject"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                      placeholder="Enter your message"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                <div className="bg-white rounded-lg shadow-sm">
+                  <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScez7YjivsWVMMGJ-aD37FFHb2vl-b1BbrrJmaSQyNR7MXUiw/viewform?embedded=true"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    className="rounded-lg"
+                    title="Contact Us - Google Form"
                   >
-                    Send Message
-                  </button>
-                </form>
+                    Loading…
+                  </iframe>
+                </div>
               </div>
 
-              {/* Contact Information */}
+              {/* Get in Touch */}
               <div>
                 <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
                 <p className="text-gray-700 mb-8 leading-relaxed">

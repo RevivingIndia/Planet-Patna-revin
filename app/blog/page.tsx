@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Blog | Planet Patna Foundation',
@@ -75,6 +76,17 @@ export default function BlogPage() {
             <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
               Despite being one of the most significant cultural and historical regions of India, a large section of Bihar&apos;s population today remains unaware of this rich heritage. While the glory of Bihar stands tall in history, its legacy often remains unrecognized in everyday life of today&apos;s population. Through awareness, education, and preservation, it is essential to reconnect people with their past, ensuring that this remarkable heritage is understood, valued, and carried forward into the future.
             </p>
+            <div className="mt-16 pt-8 border-t border-gray-200 text-center">
+              <Link
+                href="/engage-learn"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-600 text-white font-medium hover:bg-amber-700 transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Engage &amp; Learn
+              </Link>
+            </div>
           </article>
         </div>
       </section>

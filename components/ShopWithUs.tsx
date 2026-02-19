@@ -23,7 +23,7 @@ export default function ShopWithUs() {
     const products = getFeaturedProducts();
 
     return (
-        <section className="py-24 bg-stone-50">
+        <section id="shop" className="py-24 bg-stone-50 scroll-mt-20">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
 
                 {/* Section Header */}

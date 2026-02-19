@@ -1,18 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import EventsProgramsGallery from '@/components/EventsProgramsGallery';
 
 export const metadata: Metadata = {
   title: 'Events & Programs | Planet Patna Foundation',
   description:
     'Expert-led symposia, artist talks, interactive community festivals, and a diverse calendar of activities for all ages.',
 };
-
-const EVENT_IMAGES = [
-  { src: '/events/img-0649.jpg', alt: 'Events and programs at Planet Patna' },
-  { src: '/events/img-0791.jpg', alt: 'Events and programs at Planet Patna' },
-  { src: '/events/img-8559.jpg', alt: 'Events and programs at Planet Patna' },
-  { src: '/events/img-9452.jpg', alt: 'Events and programs at Planet Patna' },
-];
 
 export default function EventsProgramsPage() {
   return (
@@ -66,21 +61,17 @@ export default function EventsProgramsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
-            {EVENT_IMAGES.map((img) => (
-              <div
-                key={img.src}
-                className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 bg-gray-100"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                />
-              </div>
-            ))}
+          <EventsProgramsGallery />
+          <div className="mt-16 pt-8 border-t border-gray-200 text-center">
+            <Link
+              href="/engage-learn"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-600 text-white font-medium hover:bg-amber-700 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Engage &amp; Learn
+            </Link>
           </div>
         </div>
       </section>

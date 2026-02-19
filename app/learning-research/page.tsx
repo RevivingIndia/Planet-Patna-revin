@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -115,6 +116,17 @@ export default function LearningResearchPage() {
             <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
               Our research division serves as a center for scholarly inquiry, dedicated to the rigorous documentation and scientific analysis of our collections and their historical contexts. We provide access to primary sources and specialized archives to foster global collaboration and advance the preservation of cultural knowledge.
             </p>
+          </div>
+          <div className="mt-16 pt-8 border-t border-gray-200 text-center">
+            <Link
+              href="/engage-learn"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-600 text-white font-medium hover:bg-amber-700 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Engage &amp; Learn
+            </Link>
           </div>
         </div>
       </section>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 const slides = [
 	{
@@ -136,16 +135,6 @@ export default function Hero() {
 								{slides[currentSlide].description}
 							</motion.p>
 
-							{/* Button - Minimalist & Glassy */}
-							<motion.button
-								variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-								className="group relative px-10 py-5 overflow-hidden rounded-full bg-white/5 backdrop-blur-md border border-white/20 transition-all duration-300 hover:border-amber-500/50 hover:bg-white/10"
-							>
-								<span className="relative z-10 flex items-center gap-4 text-white font-medium tracking-[0.2em] uppercase text-xs">
-									Explore Exhibition
-									<ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-								</span>
-							</motion.button>
 						</motion.div>
 					</AnimatePresence>
 				</div>

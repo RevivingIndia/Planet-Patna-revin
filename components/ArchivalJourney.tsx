@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function ArchivalJourney() {
   return (
-    <section className="relative py-16 md:py-24 bg-white overflow-hidden text-gray-900 font-sans">
+    <section id="archives" className="relative py-16 md:py-24 bg-white overflow-hidden text-gray-900 font-sans scroll-mt-20">
       <div className="absolute left-0 top-0 h-full w-[1px] bg-gray-100 left-8 md:left-24 lg:left-32 z-0 hidden md:block" />
 
       <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">

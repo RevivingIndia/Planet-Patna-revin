@@ -34,7 +34,7 @@ const facilities = [
 
 export default function OurFacilities() {
     return (
-        <section className="py-24 bg-[#Fdfbf7] relative overflow-hidden">
+        <section id="facilities" className="py-24 bg-[#Fdfbf7] relative overflow-hidden scroll-mt-20">
 
             {/* Background Decor: A faint architectural sketch or line */}
             <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-700/20 to-transparent" />

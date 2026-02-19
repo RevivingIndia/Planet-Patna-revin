@@ -50,7 +50,7 @@ export default function AboutUsExtended() {
                 The Foundation & its ecosystem
               </h3>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                The Foundation encompasses an <span className="text-gray-900 font-medium">Archival Gallery</span>, inaugurated by Shri Dinesh K. Himatsingka, Founder of Himatsingka, and <span className="text-gray-900 font-medium">Bal Manohar Jalan Museum</span>, inaugurated by Shree Maharaj Tejendra Prasad Pandeji, Acharya of Narayan Dev Gadi. Complementing its scholarly core is a broader cultural ecosystem that includes a Multipurpose Hall, an exclusive Elite Member Club, and a Café designed as a contemplative social space. Together, these elements create an intellectually engaging yet accessible destination, one that invites visitors to encounter history within an atmosphere of quiet refinement and dialogue.
+                The Foundation encompasses an <span className="text-gray-900 font-medium">Archival Gallery</span>, inaugurated by Shri Dinesh K. Himatsingka, Founder of Himatsingka, and <span className="text-gray-900 font-medium">Bal Manohar Jalan Museum</span>, inaugurated by Shree Maharaj Tejendra Prasad Pandeji, Acharya of Narayan Dev Gadi. Complementing its scholarly core is a broader cultural ecosystem that includes a Multipurpose Hall, an exclusive Member Club, and a Café designed as a contemplative social space. Together, these elements create an intellectually engaging yet accessible destination, one that invites visitors to encounter history within an atmosphere of quiet refinement and dialogue.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default function AboutUsExtended() {
                 Experience at Planet Patna
               </h3>
               <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                At Planet Patna, visitors journey through time within the Curated Museum, which presents immersive exhibitions, rare colonial-era archives, and expert-led heritage programs that animate the city&apos;s layered past. The Café offers a space for reflection and conversation, while the Multipurpose Hall functions as a flexible venue for lectures, workshops, conferences, and cultural gatherings. The Elite Member Club provides a private forum for thinkers, patrons, and cultural leaders to engage through curated events, screenings, and discussions, extending the Foundation&apos;s mission beyond exhibition into sustained intellectual community-building.
+                At Planet Patna, visitors journey through time within the Curated Museum, which presents immersive exhibitions, rare colonial-era archives, and expert-led heritage programs that animate the city&apos;s layered past. The Café offers a space for reflection and conversation, while the Multipurpose Hall functions as a flexible venue for lectures, workshops, conferences, and cultural gatherings. The Member Club provides a private forum for thinkers, patrons, and cultural leaders to engage through curated events, screenings, and discussions, extending the Foundation&apos;s mission beyond exhibition into sustained intellectual community-building.
               </p>
             </div>
           </motion.div>
@@ -139,8 +139,8 @@ export default function AboutUsExtended() {
             {[
               { heading: 'Heritage', subHeading: 'Archival Gallery' },
               { heading: 'Curated Museum', subHeading: 'Bal Manohar Jalan Museum' },
-              { heading: 'Venue', subHeading: 'Multi Purpose Hall' },
-              { heading: 'Community', subHeading: 'Elite Member Club' },
+              { heading: 'Exhibition', subHeading: 'Multi Purpose Hall' },
+              { heading: 'Community', subHeading: 'Member Club' },
             ].map((item) => (
               <div key={item.heading + item.subHeading} className="border-l-2 border-amber-500/40 pl-4">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-amber-600/90 mb-1">{item.heading}</p>

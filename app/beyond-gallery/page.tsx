@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -199,6 +200,17 @@ export default function BeyondGalleryPage() {
           <p className="text-center text-gray-500 font-light text-sm md:text-base mt-6 max-w-2xl mx-auto">
             Beyond Gallery brings history and heritage closer to the public—join our exhibitions, lectures, and heritage walks.
           </p>
+          <div className="mt-16 pt-8 border-t border-gray-200 text-center">
+            <Link
+              href="/engage-learn"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-600 text-white font-medium hover:bg-amber-700 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Engage &amp; Learn
+            </Link>
+          </div>
         </div>
       </section>
     </main>

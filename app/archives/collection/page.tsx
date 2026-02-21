@@ -43,7 +43,7 @@ export default function ArchivesCollectionPage() {
             <span className="block text-xs font-bold tracking-[0.25em] uppercase text-amber-300/90 mb-2">
               Our Archives
             </span>
-            <h1 className="text-3xl md:text-4xl font-light text-white tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tight">
               Collection
             </h1>
           </div>

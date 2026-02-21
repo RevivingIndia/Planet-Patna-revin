@@ -76,7 +76,7 @@ export default function BeyondGalleryPage() {
       <section className="relative py-16 md:py-24 bg-gray-50/80 overflow-hidden text-gray-900 font-sans">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-5 lg:order-2">
+            <div className="lg:col-span-6 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-8 h-[1px] bg-amber-500" />
                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">Outreach Exhibitions</span>
@@ -96,24 +96,34 @@ export default function BeyondGalleryPage() {
                 </p>
               </div>
             </div>
-            <div className="lg:col-span-7 lg:order-1 space-y-6">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
-                <Image
-                  src={GALLERY_IMAGES[1].src}
-                  alt={GALLERY_IMAGES[1].alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                />
-              </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 ring-1 ring-black/5">
-                <Image
-                  src={GALLERY_IMAGES[2].src}
-                  alt={GALLERY_IMAGES[2].alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                />
+            <div className="lg:col-span-6 lg:order-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+                <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 group">
+                  <Image
+                    src="/beyond-gallery/outreach-exhibitions-1.jpg"
+                    alt="Outreach Exhibitions - Planet Patna"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Exhibition
+                  </span>
+                </div>
+                <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 group sm:mt-8">
+                  <Image
+                    src="/beyond-gallery/outreach-exhibitions-2.jpg"
+                    alt="Outreach Exhibitions - Planet Patna"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Outreach
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -123,7 +133,7 @@ export default function BeyondGalleryPage() {
       {/* Lecture Series: text left, photo right */}
       <section className="relative py-16 md:py-24 bg-white overflow-hidden text-gray-900 font-sans">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-3 mb-2">
                 <span className="w-8 h-[1px] bg-amber-500" />
@@ -137,14 +147,33 @@ export default function BeyondGalleryPage() {
               </p>
             </div>
             <div className="lg:col-span-6">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
-                <Image
-                  src={GALLERY_IMAGES[3].src}
-                  alt={GALLERY_IMAGES[3].alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+                <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 group">
+                  <Image
+                    src="/beyond-gallery/lecture-series-1.jpg"
+                    alt="Lecture Series - Planet Patna"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Lecture
+                  </span>
+                </div>
+                <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 group sm:mt-8">
+                  <Image
+                    src="/beyond-gallery/lecture-series-2.jpg"
+                    alt="Lecture Series - Planet Patna"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Series
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -154,16 +183,35 @@ export default function BeyondGalleryPage() {
       {/* Heritage Walks: photo left, text right */}
       <section className="relative py-16 md:py-24 bg-gray-50/80 overflow-hidden text-gray-900 font-sans">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-6">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
-                <Image
-                  src={GALLERY_IMAGES[4].src}
-                  alt={GALLERY_IMAGES[4].alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+                <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 group">
+                  <Image
+                    src="/beyond-gallery/heritage-walk-1.jpg"
+                    alt="Heritage Walk - Planet Patna"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Heritage
+                  </span>
+                </div>
+                <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 group sm:mt-8">
+                  <Image
+                    src="/beyond-gallery/heritage-walk-2.jpg"
+                    alt="Heritage Walk - Planet Patna"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[0.2em] uppercase text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Walk
+                  </span>
+                </div>
               </div>
             </div>
             <div className="lg:col-span-6 space-y-6">
@@ -185,19 +233,10 @@ export default function BeyondGalleryPage() {
         </div>
       </section>
 
-      {/* Closing image - normal aspect */}
+      {/* Closing section */}
       <section className="relative py-16 md:py-24 overflow-hidden text-gray-900 font-sans bg-gray-50/80">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="relative w-full max-w-4xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
-            <Image
-              src={GALLERY_IMAGES[5].src}
-              alt={GALLERY_IMAGES[5].alt}
-              fill
-              className="object-contain"
-              sizes="(max-width: 896px) 100vw, 896px"
-            />
-          </div>
-          <p className="text-center text-gray-500 font-light text-sm md:text-base mt-6 max-w-2xl mx-auto">
+          <p className="text-center text-gray-500 font-light text-sm md:text-base max-w-2xl mx-auto">
             Beyond Gallery brings history and heritage closer to the public—join our exhibitions, lectures, and heritage walks.
           </p>
           <div className="mt-16 pt-8 border-t border-gray-200 text-center">

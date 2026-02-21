@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import EducationCards from '@/components/EducationCards';
 
 export const metadata: Metadata = {
   title: 'Facilities | Planet Patna Foundation',
@@ -102,8 +101,6 @@ export default function FacilitiesPage() {
           </div>
         </div>
       </section>
-
-      <EducationCards />
     </main>
   );
 }

@@ -36,34 +36,6 @@ export default function MuseumJourney() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-6 space-y-10"
-          >
-            <div className="pb-10 border-b border-gray-200">
-              <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                The museum at <span className="text-gray-900 font-medium">Planet Patna Foundation</span> brings together art, history, and heritage under one roof. From the celebrated <span className="text-gray-900 font-medium">Patna Qalam</span> (Company School) paintings and the legacy of <span className="text-gray-900 font-medium">Bal Manohar Jalan</span> to curated exhibitions and the R.K. Jalan Archives, the collection offers a direct encounter with the cultural and artistic traditions that have shaped the region.
-              </p>
-            </div>
-            <div>
-              <p className="text-gray-500 font-light leading-relaxed text-base text-justify mb-10">
-                More than a static display, the museum is conceived as a living space where visitors can explore thematic galleries, attend programs, and connect with the stories behind the works. Whether you are drawn to colonial-era painting, antiquities, or the intellectual legacy of Patna, the museum invites you to discover the layers of history and artistry that define this institution.
-              </p>
-              <Link
-                href="/museum"
-                className="group inline-flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-gray-900 hover:text-amber-700 transition-colors duration-300"
-              >
-                <span>Read more</span>
-                <span className="bg-black text-white p-2 rounded-full group-hover:bg-amber-700 transition-all duration-300 group-hover:translate-x-2">
-                  <ArrowRight size={14} />
-                </span>
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
@@ -93,6 +65,34 @@ export default function MuseumJourney() {
                   Collection
                 </span>
               </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-6 space-y-10"
+          >
+            <div className="pb-10 border-b border-gray-200">
+              <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
+                The museum at <span className="text-gray-900 font-medium">Planet Patna Foundation</span> brings together art, history, and heritage under one roof. From the celebrated <span className="text-gray-900 font-medium">Patna Qalam</span> (Company School) paintings and the legacy of <span className="text-gray-900 font-medium">Bal Manohar Jalan</span> to curated exhibitions and the R.K. Jalan Archives, the collection offers a direct encounter with the cultural and artistic traditions that have shaped the region.
+              </p>
+            </div>
+            <div>
+              <p className="text-gray-500 font-light leading-relaxed text-base text-justify mb-10">
+                More than a static display, the museum is conceived as a living space where visitors can explore thematic galleries, attend programs, and connect with the stories behind the works. Whether you are drawn to colonial-era painting, antiquities, or the intellectual legacy of Patna, the museum invites you to discover the layers of history and artistry that define this institution.
+              </p>
+              <Link
+                href="/museum"
+                className="group inline-flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-gray-900 hover:text-amber-700 transition-colors duration-300"
+              >
+                <span>Read more</span>
+                <span className="bg-black text-white p-2 rounded-full group-hover:bg-amber-700 transition-all duration-300 group-hover:translate-x-2">
+                  <ArrowRight size={14} />
+                </span>
+              </Link>
             </div>
           </motion.div>
         </div>

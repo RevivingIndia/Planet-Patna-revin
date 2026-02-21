@@ -70,25 +70,31 @@ export default function VisualChronicle() {
                         </div>
                     </motion.div>
 
-                    {/* ITEM 2: Portrait Photo (Top Right) */}
-                    <motion.div
+                    {/* ITEM 2: Instagram Follow Card */}
+                    <motion.a
+                        href="https://www.instagram.com/planetpatna/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="md:col-span-1 md:row-span-1 relative group rounded-2xl overflow-hidden cursor-pointer"
+                        className="md:col-span-1 md:row-span-1 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-2xl p-6 flex flex-col justify-center items-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                     >
-                        {/* Portrait of an antique Indian bronze statue */}
-                        <Image
-                            src="https://images.unsplash.com/photo-1620333986385-636cb33c1038?w=600&h=800&fit=crop&q=80"
-                            alt="Antique Bronze Artifact"
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                        <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <ArrowUpRight size={16} />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                            <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <Instagram size={28} className="text-white" />
+                            </div>
+                            <p className="text-white font-bold text-base mb-1">@planetpatna</p>
+                            <span className="text-white/80 text-[10px] font-medium uppercase tracking-widest mb-3">
+                                Follow us on Instagram
+                            </span>
+                            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full group-hover:bg-white/30 transition-colors duration-300">
+                                <span className="text-white text-[10px] font-bold uppercase tracking-wider">Follow</span>
+                                <ArrowUpRight size={12} className="text-white" />
+                            </div>
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     {/* ITEM 3: Text/Quote Block (Top Far Right) */}
                     <motion.div

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const GALLERY = [
   { src: '/about-us-page/gallery-1.jpg', alt: 'Planet Patna Foundation', label: 'Archival' },
-  { src: '/about-us-page/gallery-2.jpg', alt: 'Planet Patna Foundation', label: 'Museum' },
+  { src: '/about-us-page/spaces-mission.jpg', alt: 'Planet Patna Foundation', label: 'Museum' },
   { src: '/about-us-page/gallery-3.jpg', alt: 'Planet Patna Foundation', label: 'Spaces' },
 ];
 

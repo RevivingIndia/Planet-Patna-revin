@@ -45,7 +45,7 @@ const ENGAGE_ITEMS = [
     slug: 'blog',
     title: 'Blog',
     description: 'Stories, updates, and insights from the museum and Patna’s heritage.',
-    image: '/beyond-the-walls/learning-research.jpg',
+    image: '/beyond-the-walls/blog.jpg',
     href: '/blog',
     comingSoon: false,
   },

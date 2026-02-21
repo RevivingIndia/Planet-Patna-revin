@@ -34,7 +34,7 @@ export default function HeritageWalkPage() {
         </div>
       </section>
 
-      {/* Our Heritage Walks - Dastaan-e-Patna & Gulzaar-e-Patna */}
+      {/* Our Heritage Walks - Intro */}
       <section className="relative py-16 md:py-24 bg-white overflow-hidden text-gray-900 font-sans">
         <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-100 z-0 hidden md:block" />
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
@@ -42,26 +42,89 @@ export default function HeritageWalkPage() {
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-[1px] bg-amber-500" />
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
-                Our Heritage Walks
+                Heritage Walks
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight">
-              <span className="font-serif italic text-amber-700">Dastaan-e-Patna</span>
-              <span className="text-gray-400 mx-2"> & </span>
-              <span className="font-serif italic text-amber-700">Gulzaar-e-Patna</span>
-            </h2>
           </div>
 
           <div className="max-w-3xl space-y-6">
             <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-              Our Heritage Walks titled as, &apos;Dastaan-e-Patna&apos; and &apos;Gulzaar-e-Patna&apos; offer an immersive journey through the layered history of one of the world&apos;s oldest continuously inhabited cities, tracing the architectural and cultural evolution of Pataliputra, Azimabad, and modern Patna. Led by expert researchers, these curated tours transcend traditional sightseeing by integrating rigorous historical learning with engaging narratives.
+              Patna, one of the world&apos;s oldest continuously inhabited cities, reflects a remarkable continuum of time, tradition, and transformation. To truly understand this continuity, we have carefully curated heritage walks that let people experience Patna through a different lens. Our heritage walks are research-driven and blend architectural exploration, faith traditions, intellectual heritage, and the modern civic life of Patna. Our heritage walks prioritize sustainability through eco-friendly transit, such as e-rickshaws, ensuring a comfortable &amp; environmentally responsible experience that bridges the gap between bygone eras and the present.
             </p>
-            <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-              Participants explore a diverse tapestry of legacies, ranging from Mughal and Sikh heritage to colonial-era milestones, while gaining exclusive access to hidden gems, including historic libraries and ancient pilgrimage sites.
-            </p>
-            <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
-              Designed for the conscious traveler, our walks prioritize both accessibility and sustainability through the use of eco-friendly transit, such as e-rickshaws, to ensure a comfortable and environmentally responsible experience. By bridging the gap between historical era and the contemporary urban landscape, we provide a sophisticated platform for connecting with the narratives and citizens that have shaped Patna&apos;s enduring cultural identity.
-            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Dastaan-e-Patna City */}
+      <section className="relative py-16 md:py-24 bg-gray-50/80 overflow-hidden text-gray-900 font-sans">
+        <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-200 z-0 hidden md:block" />
+        <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-[1px] bg-amber-500" />
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
+                Heritage Walk
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight">
+              <span className="font-serif italic text-amber-700">Dastaan-e-Patna City</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-6 space-y-6">
+              <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
+                This route is dedicated to a more spiritually &amp; intellectually oriented odyssey that lets people percolate into the philosophical core of the city. Dastaan highlights the breathing traditions, moulding the route through the sacred sites of Sikh, Hindu, and Islamic devotion. This walk delves into the historical nuances of the city through religious landmarks. This is a narrative-driven experience for the traveler who seeks to understand the folklore, the faith, and the intellectual legacy of Patna.
+              </p>
+            </div>
+            <div className="lg:col-span-6">
+              <div className="relative aspect-[4/3] rounded-[1.75rem] overflow-hidden shadow-[0_28px_60px_-18px_rgba(0,0,0,0.18)] ring-1 ring-black/5 group bg-gray-100">
+                <Image
+                  src="/heritage-walk/dastaan-e-patna.jpg"
+                  alt="Dastaan-e-Patna City - Heritage Walk"
+                  fill
+                  className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gulzaar-e-Patna City */}
+      <section className="relative py-16 md:py-24 bg-white overflow-hidden text-gray-900 font-sans">
+        <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-100 z-0 hidden md:block" />
+        <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-[1px] bg-amber-500" />
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
+                Heritage Walk
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight">
+              <span className="font-serif italic text-amber-700">Gulzaar-e-Patna City</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-6">
+              <div className="relative aspect-[4/3] rounded-[1.75rem] overflow-hidden shadow-[0_28px_60px_-18px_rgba(0,0,0,0.18)] ring-1 ring-black/5 group bg-gray-100">
+                <Image
+                  src="/heritage-walk/gulzaar-e-patna.jpg"
+                  alt="Gulzaar-e-Patna City - Heritage Walk"
+                  fill
+                  className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-6 space-y-6">
+              <p className="text-gray-500 font-light leading-relaxed text-base text-justify">
+                This walk en route to the vibrant heritage of Patna city, which dates back to the medieval and early modern times. This segment encompasses crucial historical sites in the Gulzarbagh area that encapsulate the essence of the old Patna city, from the remnants of Sher Shah Suri to the essence of Azimabad and the colonial influences. It is a walk designed for those who wish to see how power, commerce, and diverse faiths carved their mark into the city&apos;s physical landscape.
+              </p>
+            </div>
           </div>
         </div>
       </section>

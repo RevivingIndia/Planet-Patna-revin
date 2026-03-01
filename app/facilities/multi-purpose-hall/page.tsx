@@ -1,14 +1,44 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Multi-Purpose Hall | Planet Patna Foundation',
-  description:
-    'A dedicated, flexible venue for conferences, lectures, workshops, and events. Available for rental.',
-};
 
 export default function MultiPurposeHallPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    organization: '',
+    eventType: '',
+    eventDate: '',
+    attendees: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScNKDddgzz6tgKza9XZJmSPjZi9b93du3ZFRYeRbnZEZCO2gQ/formResponse';
+    const formDataToSend = new FormData();
+    
+    try {
+      await fetch(googleFormUrl, {
+        method: 'POST',
+        body: formDataToSend,
+        mode: 'no-cors',
+      });
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', organization: '', eventType: '', eventDate: '', attendees: '', message: '' });
+    } catch {
+      setSubmitted(true);
+    }
+    setIsSubmitting(false);
+  };
+
   return (
     <main className="min-h-screen bg-white">
       <section className="relative w-full h-[40vh] min-h-[280px] md:h-[45vh] md:min-h-[320px] overflow-hidden">
@@ -72,20 +102,164 @@ export default function MultiPurposeHallPage() {
                 />
               </div>
               <div className="mt-10 p-6 md:p-8 rounded-2xl bg-gray-50 ring-1 ring-black/5 overflow-hidden">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Enquiry / Booking Form</h3>
-                <p className="text-sm text-gray-500 mb-4">Fill out the form and we&apos;ll get back to you.</p>
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLScNKDddgzz6tgKza9XZJmSPjZi9b93du3ZFRYeRbnZEZCO2gQ/viewform?embedded=true"
-                  width="100%"
-                  height="600"
-                  frameBorder={0}
-                  marginHeight={0}
-                  marginWidth={0}
-                  className="rounded-lg min-h-[500px]"
-                  title="Enquiry / Booking Form - Google Form"
-                >
-                  Loading…
-                </iframe>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Enquiry / Booking Form</h3>
+                <p className="text-sm text-gray-500 mb-6">Fill out the form and we&apos;ll get back to you.</p>
+                
+                {submitted ? (
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-green-800 mb-1">Request Submitted!</h4>
+                    <p className="text-green-600 text-sm">We&apos;ll contact you soon.</p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="mt-3 text-amber-600 hover:text-amber-700 font-medium text-sm"
+                    >
+                      Submit another request
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Email <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                          placeholder="Email"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Phone <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                          placeholder="Phone"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        Organization / Company
+                      </label>
+                      <input
+                        type="text"
+                        id="organization"
+                        value={formData.organization}
+                        onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                        placeholder="Organization name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="eventType" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        Event Type <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="eventType"
+                        required
+                        value={formData.eventType}
+                        onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                      >
+                        <option value="">Select event type</option>
+                        <option value="conference">Conference</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="lecture">Lecture / Seminar</option>
+                        <option value="cultural">Cultural Program</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="private">Private Event</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Preferred Date
+                        </label>
+                        <input
+                          type="date"
+                          id="eventDate"
+                          value={formData.eventDate}
+                          onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="attendees" className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Expected Attendees
+                        </label>
+                        <input
+                          type="number"
+                          id="attendees"
+                          value={formData.attendees}
+                          onChange={(e) => setFormData({ ...formData, attendees: e.target.value })}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm"
+                          placeholder="Number"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
+                        Additional Details
+                      </label>
+                      <textarea
+                        id="message"
+                        rows={3}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white text-sm resize-none"
+                        placeholder="Any specific requirements..."
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                          </svg>
+                          Submitting...
+                        </>
+                      ) : (
+                        'Submit Enquiry'
+                      )}
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           </div>

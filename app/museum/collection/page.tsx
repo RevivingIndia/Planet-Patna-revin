@@ -151,56 +151,71 @@ export default function MuseumCollectionPage() {
         </div>
       </section>
 
-      {/* Six schools - each with content and matching image */}
-      {SECTIONS.map((section, index) => (
-        <section
-          key={section.id}
-          className={`relative py-16 md:py-24 overflow-hidden text-gray-900 font-sans ${index % 2 === 1 ? 'bg-gray-50/80' : 'bg-white'}`}
-        >
-          <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-200 z-0 hidden md:block" />
+      {/* Six schools - each with content and matching image in zigzag layout */}
+      {SECTIONS.map((section, index) => {
+        const imageLeft = index % 2 === 0;
+        return (
+          <section
+            key={section.id}
+            className={`relative py-16 md:py-24 overflow-hidden text-gray-900 font-sans ${index % 2 === 1 ? 'bg-gray-50/80' : 'bg-white'}`}
+          >
+            <div className="absolute left-6 md:left-12 lg:left-24 top-0 h-full w-[1px] bg-gray-200 z-0 hidden md:block" />
 
-          <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-              {/* Text */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="mb-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="w-8 h-[1px] bg-amber-500" />
-                    <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
-                      {section.number.toString().padStart(2, '0')}
-                    </span>
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                {/* Image */}
+                <div className={`lg:col-span-5 ${!imageLeft ? 'lg:order-2' : ''}`}>
+                  <div
+                    onClick={() => openModal(section.image)}
+                    className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 bg-gray-100 cursor-pointer group"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={section.image}
+                      alt={section.imageAlt}
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-black/70 to-transparent">
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-amber-200/90">
+                        Company School
+                      </span>
+                      <p className="text-white font-serif text-lg md:text-xl mt-1">
+                        {section.title}
+                      </p>
+                    </div>
+                    <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-amber-400/60 rounded-tl-lg pointer-events-none" />
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight mb-6 md:mb-8">
-                    <span className="font-serif italic text-amber-800">
-                      {section.title}
-                    </span>
-                  </h2>
                 </div>
-                {section.content.map((paragraph, i) => (
-                  <p key={i} className="text-gray-500 font-light leading-relaxed text-base text-justify">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
 
-              {/* Image - plain img so all section images (incl. Awadh) load reliably */}
-              <div className="lg:col-span-5">
-                <div
-                  onClick={() => openModal(section.image)}
-                  className="relative block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5 bg-gray-100 cursor-pointer hover:opacity-95 transition-opacity"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={section.image}
-                    alt={section.imageAlt}
-                    className="w-full h-full object-cover object-center"
-                  />
+                {/* Text */}
+                <div className={`lg:col-span-7 ${!imageLeft ? 'lg:order-1' : ''}`}>
+                  <div className="mb-2">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="w-8 h-[1px] bg-amber-500" />
+                      <span className="text-xs font-bold tracking-[0.2em] uppercase text-amber-600">
+                        {section.number.toString().padStart(2, '0')}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 tracking-tight mb-6 md:mb-8">
+                      <span className="font-serif italic text-amber-800">
+                        {section.title}
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="space-y-5 max-w-2xl">
+                    {section.content.map((paragraph, i) => (
+                      <p key={i} className="text-gray-500 font-light leading-relaxed text-base text-justify">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       {/* Back to Museum */}
       <section className="py-12 md:py-16 bg-white border-t border-gray-100">

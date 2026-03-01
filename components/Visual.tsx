@@ -38,10 +38,15 @@ export default function VisualChronicle() {
                         </h2>
                     </div>
 
-                    <button className="flex items-center gap-2 text-white border border-stone-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                    <a 
+                        href="https://www.instagram.com/planetpatna/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-white border border-stone-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+                    >
                         <Instagram size={18} />
                         <span className="text-xs font-bold uppercase tracking-widest">Follow @PlanetPatna</span>
-                    </button>
+                    </a>
                 </div>
 
                 {/* THE BENTO GRID */}
@@ -65,33 +70,45 @@ export default function VisualChronicle() {
                         </div>
 
                         <div className="absolute bottom-0 left-0 p-8 z-10">
-                            <h3 className="text-2xl text-white font-serif mb-2">The Sculpture Gallery</h3>
-                            <p className="text-stone-400 text-sm">Explore ancient stone and bronze masterpieces.</p>
+                            <h3 className="text-2xl text-white font-serif mb-2">Bal Manohar Jalan Museum</h3>
+                            <p className="text-stone-400 text-sm">The Story of Indian Company Paintings.</p>
                         </div>
                     </motion.div>
 
-                    {/* ITEM 2: Instagram Follow Card */}
+                    {/* ITEM 2: Latest Instagram Post */}
                     <motion.a
-                        href="https://www.instagram.com/planetpatna/"
+                        href="https://www.instagram.com/p/DVWEmQ1E_r5/"
                         target="_blank"
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="md:col-span-1 md:row-span-1 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-2xl p-6 flex flex-col justify-center items-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+                        className="md:col-span-1 md:row-span-1 rounded-2xl relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                     >
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
-                        <div className="relative z-10 flex flex-col items-center text-center">
-                            <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                                <Instagram size={28} className="text-white" />
+                        <Image
+                            src="/visual/open-mic-post.png"
+                            alt="Open Mic at Planet Patna"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 25vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                            <div className="flex items-center gap-2">
+                                <Instagram size={14} className="text-white" />
+                                <span className="text-white/90 text-[10px] font-bold uppercase tracking-widest">Latest Post</span>
                             </div>
-                            <p className="text-white font-bold text-base mb-1">@planetpatna</p>
-                            <span className="text-white/80 text-[10px] font-medium uppercase tracking-widest mb-3">
-                                Follow us on Instagram
-                            </span>
-                            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full group-hover:bg-white/30 transition-colors duration-300">
-                                <span className="text-white text-[10px] font-bold uppercase tracking-wider">Follow</span>
-                                <ArrowUpRight size={12} className="text-white" />
+                            <div>
+                                <p className="text-white font-medium text-xs leading-relaxed mb-2">
+                                    Planet Patna transformed into a vibrant space of expression through our Open Mic.
+                                </p>
+                                <div className="flex items-center justify-between pt-2 border-t border-white/20">
+                                    <span className="text-white/80 text-[10px] font-bold">@planetpatna</span>
+                                    <div className="flex items-center gap-1 text-white/90">
+                                        <span className="text-[10px] font-medium">View</span>
+                                        <ArrowUpRight size={10} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.a>

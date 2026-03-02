@@ -117,14 +117,30 @@ export default function LearningResearchPage() {
               Our publications serve as a comprehensive repository of scholarly research, essays, and archival documentation dedicated to advancing the field of cultural heritage. We invite you to explore these curated resources, which provide deep intellectual insights and professional analysis of the collections and histories within our care.
             </p>
           </div>
-          {/* Placeholder for publication photos - replace with real images when available */}
+          {/* Publication photos */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl">
-            {[1, 2, 3, 4].map((i) => (
+            {/* First publication with actual image */}
+            <div className="aspect-[3/4] rounded-xl overflow-hidden ring-1 ring-gray-200 relative group">
+              <Image
+                src="/learning-research/quila-house-book.png"
+                alt="Quila House Book - Planet Patna Foundation Publication"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            {/* Coming Soon placeholders */}
+            {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="aspect-[3/4] rounded-xl bg-gray-100 ring-1 ring-gray-200 flex items-center justify-center text-gray-400 text-sm"
+                className="aspect-[3/4] rounded-xl bg-gradient-to-br from-amber-50 via-gray-100 to-amber-100 ring-1 ring-amber-200/50 flex flex-col items-center justify-center gap-2"
               >
-                Publication
+                <div className="w-10 h-10 rounded-full bg-amber-200/60 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <span className="text-amber-700/70 text-xs font-medium tracking-wide">Coming Soon</span>
               </div>
             ))}
           </div>

@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const GALLERY = [
-  { src: '/about-us-page/gallery-1.jpg', alt: 'Planet Patna Foundation', label: 'Archival' },
-  { src: '/about-us-page/spaces-mission.jpg', alt: 'Planet Patna Foundation', label: 'Museum' },
-  { src: '/about-us-page/gallery-3.jpg', alt: 'Planet Patna Foundation', label: 'Spaces' },
+  { src: '/about-us-page/gallery-1.jpg', alt: 'Planet Patna Foundation', label: 'Lightening the lamp' },
+  { src: '/about-us-page/spaces-mission.jpg', alt: 'Planet Patna Foundation', label: 'Dignitaries' },
+  { src: '/about-us-page/gallery-3.jpg', alt: 'Planet Patna Foundation', label: 'First look of publication' },
 ];
 
 export default function AboutUsExtended() {

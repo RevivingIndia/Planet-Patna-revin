@@ -1,10 +1,27 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { ArrowLeft, X } from 'lucide-react';
-import ArchivesThemesCarousel from '@/components/ArchivesThemesCarousel';
+const ArchivesThemesCarousel = dynamic(() => import('@/components/ArchivesThemesCarousel'), {
+  ssr: false,
+  loading: () => (
+    <section className="relative w-full min-h-[90vh] flex flex-col justify-center bg-white py-24">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24">
+        <div className="mb-20">
+          <span className="block text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Curated For You</span>
+          <h2 className="text-5xl md:text-7xl font-light tracking-tight text-gray-900">Explore Collection</h2>
+          <div className="h-1 w-20 bg-black mt-8" />
+        </div>
+        <div className="h-[500px] md:h-[600px] flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-amber-600 border-t-transparent rounded-full animate-spin" />
+        </div>
+      </div>
+    </section>
+  ),
+});
+
 import ArchivesThemesContent from '@/components/ArchivesThemesContent';
 
 export default function ArchivesCollectionPage() {
@@ -26,15 +43,15 @@ export default function ArchivesCollectionPage() {
       <section className="relative w-full h-[30vh] min-h-[200px] overflow-hidden">
         <div
           onClick={() => openModal('/archives/banner.png')}
-          className="absolute inset-0 cursor-pointer"
+          className="absolute inset-0 cursor-pointer block w-full h-full"
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/archives/banner.png"
             alt="Archives Collection - Planet Patna Foundation"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
+            fetchPriority="high"
+            decoding="async"
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div className="absolute inset-0 bg-black/40 pointer-events-none" />

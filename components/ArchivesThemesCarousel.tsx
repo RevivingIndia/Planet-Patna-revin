@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import Image from 'next/image';
+import React, { useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+
+const RAF_THROTTLE_MS = 50;
 
 const ARCHIVE_THEMES = [
   { id: '1', href: '#education', category: 'ARCHIVAL THEMES', title: 'Education', img: '/archives/education.jpg' },
@@ -25,17 +26,23 @@ export default function ArchivesThemesCarousel({
 }) {
   const [center, setCenter] = useState<number>(4); // Start at middle for 9 items
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const lastClientX = useRef<number>(0);
+  const throttleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const progress = Math.max(0, Math.min(1, mouseX / rect.width));
-    const targetIndex = Math.floor(progress * ARCHIVE_THEMES.length);
-    if (targetIndex !== center) {
-      setCenter(targetIndex);
-    }
-  };
+    lastClientX.current = e.clientX;
+    if (throttleRef.current) return;
+    throttleRef.current = setTimeout(() => {
+      throttleRef.current = null;
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const mouseX = lastClientX.current - rect.left;
+      const progress = Math.max(0, Math.min(1, mouseX / rect.width));
+      const targetIndex = Math.floor(progress * ARCHIVE_THEMES.length);
+      setCenter((prev) => (targetIndex !== prev ? targetIndex : prev));
+    }, RAF_THROTTLE_MS);
+  }, []);
 
   return (
     <section className="relative w-full min-h-[90vh] flex flex-col justify-center bg-white text-gray-900 overflow-hidden py-24">
@@ -58,6 +65,7 @@ export default function ArchivesThemesCarousel({
           {ARCHIVE_THEMES.map((item, i) => {
             const offset = i - center;
             const isActive = offset === 0;
+            const shouldLoadImage = Math.abs(offset) <= 2; // Load only center ± 2 (max 5 images)
             const scale = 1 - Math.abs(offset) * 0.1;
             const opacity = 1 - Math.abs(offset) * 0.2;
             const xOffset = offset * 42; // Tighter spread for 9 cards
@@ -90,14 +98,16 @@ export default function ArchivesThemesCarousel({
                     ${isActive ? 'shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] cursor-pointer' : 'shadow-xl grayscale-[100%]'}
                   `}
                 >
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className={`object-cover transition-transform duration-700 ${isActive ? 'scale-105' : 'scale-100'}`}
-                    sizes="(max-width: 768px) 280px, 340px"
-                    loading="lazy"
-                  />
+                  {shouldLoadImage ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      loading={Math.abs(offset) <= 1 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isActive ? 'scale-105' : 'scale-100'}`}
+                    />
+                  ) : null}
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-40'}`} />
 
                   <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 pointer-events-none">

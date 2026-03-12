@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 const SECTIONS = [
   {
     id: 'education',
@@ -110,15 +108,15 @@ export default function ArchivesThemesContent({
                 >
                   <div
                     onClick={() => onImageClick?.(section.img)}
-                    className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 group cursor-pointer"
+                    className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.15)] ring-1 ring-black/5 group cursor-pointer bg-gray-100"
                   >
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src={section.img}
                       alt={section.title}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
                       loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-black/70 to-transparent">
